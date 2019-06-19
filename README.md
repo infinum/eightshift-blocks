@@ -1,2 +1,1 @@
-# wordpress-crveninosovi
-# eightshift-blocks
+# Eightshift Blocks

@@ -32,7 +32,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Eightshift_Libs\\": "src/"
+      "Eightshift_Blocks\\": "src/"
     }
   },
   "minimum-stability": "dev",

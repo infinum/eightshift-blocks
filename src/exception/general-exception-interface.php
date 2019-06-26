@@ -3,10 +3,10 @@
  * File containing general exception interface
  *
  * @since   0.1.0
- * @package Eightshift_Libs\Exception
+ * @package Eightshift_Blocks\Exception
  */
 
-namespace Eightshift_Libs\Exception;
+namespace Eightshift_Blocks\Exception;
 
 /**
  * Interface General_Exception.

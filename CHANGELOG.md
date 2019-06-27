@@ -7,6 +7,6 @@ This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a 
 
 _No documentation available about unreleased changes as of yet._
 
-## [0.1.0] - TBA
+## [1.0.0] - TBA
 
 Init setup

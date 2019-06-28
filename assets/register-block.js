@@ -1,9 +1,12 @@
-/* eslint-disable import/no-dynamic-require, global-require */
-
 import { InnerBlocks } from '@wordpress/editor';
-import globalManifest from './../../../manifest.json';
 
-export const registerBlock = (manifest, edit) => {
+/**
+ * Map and prepare all options from block manifest.json file for usage in registerBlockType method.
+ * @param {object} manifest Block manifest.json object with data.
+ * @param {object} blocksSettings Blocks  manifest.json object with data.
+ * @param {function} edit Edit callback function.
+ */
+export const registerBlock = (manifest, blocksSettings, edit) => {
   const {
     blockName,
     title,
@@ -22,7 +25,7 @@ export const registerBlock = (manifest, edit) => {
   const {
     namespace,
     background,
-  } = globalManifest;
+  } = blocksSettings;
 
   // Default save method.
   let save = () => {

@@ -342,10 +342,6 @@ abstract class Blocks_Data implements Service {
       $block_details['hasWrapper'] = true;
     }
 
-    if ( ! isset( $block_details['hasState'] ) ) {
-      $block_details['hasState'] = false;
-    }
-
     if ( ! isset( $block_details['hasInnerBlocks'] ) ) {
       $block_details['hasInnerBlocks'] = false;
     }

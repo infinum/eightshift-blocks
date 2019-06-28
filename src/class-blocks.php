@@ -117,9 +117,6 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
       throw Missing_Block_View::view_exception( $block_name, $template_path );
     }
 
-    // Ability to pass additional props in block view.
-    $props = apply_filters( "block_view_props_${block_name}", null );
-
     // If everything is ok, return the contents of the template (return, NOT echo).
     ob_start();
     include $wrapper;
@@ -154,9 +151,6 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
     if ( empty( $template ) ) {
       throw Missing_Block_View::view_exception( $block_name, $template_path );
     }
-
-    // Ability to pass additional props in block view.
-    $props = apply_filters( "block_view_props_${block_name}", null );
 
     // If everything is ok, return the contents of the template (return, NOT echo).
     ob_start();

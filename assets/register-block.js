@@ -1,4 +1,7 @@
+/* globals @wordpress */
+
 import { InnerBlocks } from '@wordpress/editor';
+import { createElement } from '@wordpress/element';
 
 /**
  * Map and prepare all options from block manifest.json file for usage in registerBlockType method.
@@ -15,7 +18,7 @@ export const registerBlock = (manifest, blocksSettings, edit) => {
     keywords,
     supports,
     parent,
-    type,
+    hasInnerBlocks,
   } = manifest;
 
   let {
@@ -28,9 +31,7 @@ export const registerBlock = (manifest, blocksSettings, edit) => {
   } = blocksSettings;
 
   // Default save method.
-  let save = () => {
-    return null;
-  };
+  let save = () => null;
 
   // Append globalManifest data in to output.
   icon = {
@@ -39,13 +40,9 @@ export const registerBlock = (manifest, blocksSettings, edit) => {
   };
 
   // Provide different save method for InnerBlocks.
-  // if (type === 'repeater') {
-  //   save = () => {
-  //     return (
-  //       <InnerBlocks.Content />
-  //     );
-  //   };
-  // }
+  if (hasInnerBlocks) {
+    save = () => createElement(InnerBlocks.Content);
+  }
 
   return {
     blockName: `${namespace}/${blockName}`,

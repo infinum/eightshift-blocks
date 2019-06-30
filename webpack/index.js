@@ -48,6 +48,7 @@ module.exports = {
     alias: {
       EighshiftBlocksRegisterBlocks: `${blocksHelpers}/register-blocks`,
       EighshiftBlocksDynamicImport: `${blocksHelpers}/dynamic-import`,
+      EighshiftBlocksUcfirst: `${blocksHelpers}/ucfirst`,
     },
   },
 };

@@ -5,9 +5,12 @@ import { createElement } from '@wordpress/element';
 
 /**
  * Map and prepare all options from block manifest.json file for usage in registerBlockType method.
+ *
  * @param {object} manifest Block manifest.json object with data.
  * @param {object} blocksSettings Blocks  manifest.json object with data.
  * @param {function} edit Edit callback function.
+ *
+ * @since 1.0.0
  */
 export const registerBlock = (manifest, blocksSettings, edit) => {
   const {

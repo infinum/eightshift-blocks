@@ -9,6 +9,8 @@ import { getBlockEditComponent } from './get-block-edit-component';
  * @param {function} blocksManifests Must provide require.context for all blocks manifest.json-s.
  * @param {function} blocksFilePaths Must provide require.context for all blocks javascript files (unable to add only block edit file due to dynamic naming).
  * @param {object} blocksSettings Must provide global blocks setting manifest.json.
+ *
+ * @since 1.0.0
  */
 export const registerBlocks = (blocksManifests, blocksFilePaths, blocksSettings) => {
 

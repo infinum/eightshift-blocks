@@ -46,9 +46,10 @@ module.exports = {
   externals,
   resolve: {
     alias: {
-      EighshiftBlocksRegisterBlocks: `${blocksHelpers}/register-blocks`,
       EighshiftBlocksDynamicImport: `${blocksHelpers}/dynamic-import`,
+      EighshiftBlocksRegisterBlocks: `${blocksHelpers}/register-blocks`,
       EighshiftBlocksUcfirst: `${blocksHelpers}/ucfirst`,
+      EighshiftBlocksGetStore: `${blocksHelpers}/get-store`,
     },
   },
 };

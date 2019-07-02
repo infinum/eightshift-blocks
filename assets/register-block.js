@@ -22,7 +22,13 @@ export const registerBlock = (manifest, blocksSettings, edit) => {
     supports,
     parent,
     hasInnerBlocks,
+    isInactive,
   } = manifest;
+
+  // If block is set to inactive it will not be registrated.
+  if (isInactive === true) {
+    return false;
+  }
 
   let {
     icon,

@@ -26,6 +26,11 @@ export const getStore = (props, manifest) => {
     // If key doesn't exists skip this iteration.
     if (attributes.hasOwnProperty(key)) {
 
+      // If useManual key is set to true skip this attribute from store output. 
+      if (attributes[key].hasOwnProperty('useManual')) {
+        continue;
+      }
+
       // Set output as a object key with anonimus function callback.
       // Keys first name must be uppercased.
       storeOutput[`onChange${ucfirst(key)}`] = function(value) {

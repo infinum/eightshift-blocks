@@ -207,4 +207,8 @@ For questions talk to:
 * [ivan.grginov@infinum.hr](ivan.grginov@infinum.hr)
 * [team@eightshift.com](team@eightshift.com)
 
+Eightshift Blocks is maintained and sponsored by Eightshift and Infinum.
+
 ## :scroll: License
+
+Infinum WordPress Boilerplate is Copyright ©2018 Infinum. It is free software, and may be redistributed under the terms specified in the LICENSE file.

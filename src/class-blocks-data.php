@@ -10,6 +10,7 @@ namespace Eightshift_Blocks;
 
 use Eightshift_Libs\Core\Service;
 use Eightshift_Blocks\Renderable_Block;
+use Eightshift_Blocks\Exception\Missing_Attribute_Type;
 use Eightshift_Blocks\Exception\Missing_Block_Full_Name;
 use Eightshift_Blocks\Exception\Missing_Block_Name;
 use Eightshift_Blocks\Exception\Missing_Block_Namespace;
@@ -43,6 +44,16 @@ abstract class Blocks_Data implements Service {
   protected $blocks_variable_name = 'INF_BLOCKS';
 
   /**
+   * Default projects wrapper global variable name.
+   * Used to store wrapper data.
+   *
+   * @var string
+   *
+   * @since 1.0.0
+   */
+  protected $wrapper_variable_name = 'INF_WRAPPER';
+
+  /**
    * Register all the hooks
    *
    * @since 1.0.0
@@ -51,6 +62,9 @@ abstract class Blocks_Data implements Service {
 
     // Set blocks settings global variable.
     add_action( 'init', [ $this, 'register_blocks_settings_variable' ] );
+
+    // Set wrapper global variable.
+    add_action( 'init', [ $this, 'register_wrapper_variable' ] );
 
     // Set all blocks global variable.
     add_action( 'init', [ $this, 'register_blocks_variable' ] );
@@ -66,6 +80,18 @@ abstract class Blocks_Data implements Service {
    */
   public function register_blocks_settings_variable() {
     define( $this->get_blocks_settings_variable_name(), $this->get_blocks_settings_raw() );
+  }
+
+  /**
+   * Define global variable for wrapper settings.
+   * Used to cache data inside a global variable so you don't have to fetch manifest.json file on every call.
+   *
+   * @return void
+   *
+   * @since 1.0.0
+   */
+  public function register_wrapper_variable() {
+    define( $this->get_wrapper_variable_name(), $this->get_wrapper_raw() );
   }
 
   /**
@@ -112,6 +138,17 @@ abstract class Blocks_Data implements Service {
   }
 
   /**
+   * Get wrapper settings variable name to store the cached data into.
+   *
+   * @return string
+   *
+   * @since 1.0.0
+   */
+  protected function get_wrapper_variable_name() : string {
+    return $this->wrapper_variable_name;
+  }
+
+  /**
    * Get global blocks variable name to store the cached data into.
    *
    * @return string
@@ -141,6 +178,23 @@ abstract class Blocks_Data implements Service {
     }
 
     return implode( ' ', file( $manifest_path ) );
+  }
+
+  /**
+   * Get raw wrapper settings manifest data.
+   * This data is stored in global variable as a string.
+   * Not using array because php <= 7.0 doesn't support it.
+   *
+   * @return string
+   *
+   * @since 1.0.0
+   */
+  protected function get_wrapper_raw() : string {
+    $manifest_path = $this->get_blocks_path() . '/wrapper/manifest.json';
+
+    if ( ! file_exists( $manifest_path ) ) {
+      return implode( ' ', file( $manifest_path ) );
+    }
   }
 
   /**
@@ -181,6 +235,18 @@ abstract class Blocks_Data implements Service {
    */
   protected function get_blocks_settings() : array {
     return json_decode( constant( $this->get_blocks_settings_variable_name() ), true );
+  }
+
+  /**
+   * Get wrapper manifest data.
+   * Output is converted into array.
+   *
+   * @return array
+   *
+   * @since 1.0.0
+   */
+  protected function get_wrapper() : array {
+    return json_decode( constant( $this->get_wrapper_variable_name() ), true );
   }
 
   /**
@@ -277,6 +343,9 @@ abstract class Blocks_Data implements Service {
 
   /**
    * Get blocks attributes value.
+   * Set default values to attributes if they are not set.
+   *
+   * @throws Exception\Missing_Attribute_Type Throws error if attribute type is missing.
    *
    * @param array $block_details Block Manifest details.
    *
@@ -285,7 +354,54 @@ abstract class Blocks_Data implements Service {
    * @since 1.0.0
    */
   protected function get_block_attributes( array $block_details ) : array {
-    return $block_details['attributes'] ?? [];
+    $attributes = $block_details['attributes'] ?? [];
+    $output     = [];
+
+    if ( empty( $attributes ) ) {
+      return $$output;
+    }
+
+    foreach ( $attributes as $attribute_key => $attribute_value ) {
+      if ( ! isset( $attribute_value['type'] ) ) {
+        throw Missing_Attribute_Type::type_exception( $this->get_block_name( $block_details ), $attribute_key );
+      }
+
+      $output[ $attribute_key ] = [
+        'type' => $attribute_value['type'],
+      ];
+
+      // If default value is set out it.
+      if ( isset( $attribute_value['default'] ) ) {
+        $output[ $attribute_key ]['default'] = $attribute_value['default'];
+      } else {
+
+        // If default value is not set output defaults by type.
+        switch ( $attribute_value['type'] ) {
+          case 'null':
+            $output[ $attribute_key ]['default'] = null;
+                break;
+          case 'boolean':
+          case 'bool':
+            $output[ $attribute_key ]['default'] = 0;
+                break;
+          case 'object':
+            $output[ $attribute_key ]['default'] = new stdClass();
+                break;
+          case 'array':
+            $output[ $attribute_key ]['default'] = [];
+                break;
+          case 'string':
+            $output[ $attribute_key ]['default'] = '';
+                break;
+          case 'number':
+          case 'integer':
+            $output[ $attribute_key ]['default'] = 0;
+                break;
+        }
+      }
+    }
+
+    return $output;
   }
 
   /**

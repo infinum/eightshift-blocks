@@ -26,7 +26,7 @@ class Block_View_Helper {
    *
    * @since 1.0.0
    */
-  public static function render_block_view( string $src, array $attributes, ?string $inner_block_content = null ) : string {
+  public static function render_block_view( string $src, array $attributes, ?string $inner_block_content = null ) {
     $output = '';
 
     $template = locate_template( $src );

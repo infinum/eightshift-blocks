@@ -49,7 +49,7 @@ module.exports = {
       EighshiftBlocksDynamicImport: `${blocksHelpers}/dynamic-import`,
       EighshiftBlocksRegisterBlocks: `${blocksHelpers}/register-blocks`,
       EighshiftBlocksUcfirst: `${blocksHelpers}/ucfirst`,
-      EighshiftBlocksGetStore: `${blocksHelpers}/get-store`,
+      EighshiftBlocksGetActions: `${blocksHelpers}/get-actions`,
     },
   },
 };

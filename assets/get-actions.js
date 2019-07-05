@@ -1,8 +1,8 @@
 import { ucfirst } from './ucfirst';
 
 /**
- * Crate attributes store from blocks manifest.json.
- * Store is passed in child components in order to update props on event.
+ * Crate attributes actions from blocks manifest.json.
+ * Actions are passed in child components in order to update props on event.
  * Default function output is `onChange` + attribute name.
  * Example `onChangeContent`.
  *
@@ -11,14 +11,14 @@ import { ucfirst } from './ucfirst';
  *
  * @since 1.0.0
  */
-export const getStore = (props, manifest) => {
+export const getActions = (props, manifest) => {
 
-  // Get data and store if not available set to default.
+  // Get data, if not available set to default.
   const { setAttributes } = props || {};
   const { attributes } = manifest || {};
 
   // Prepare output variable.
-  const storeOutput = {};
+  const actionsOutput = {};
 
   // Iterate all object keys. This is the fastest way.
   for (const key in attributes) {
@@ -26,14 +26,14 @@ export const getStore = (props, manifest) => {
     // If key doesn't exists skip this iteration.
     if (attributes.hasOwnProperty(key)) {
 
-      // If useManual key is set to true skip this attribute from store output. 
+      // If useManual key is set to true skip this attribute from actions output. 
       if (attributes[key].hasOwnProperty('useManual')) {
         continue;
       }
 
       // Set output as a object key with anonimus function callback.
       // Keys first name must be uppercased.
-      storeOutput[`onChange${ucfirst(key)}`] = function(value) {
+      actionsOutput[`onChange${ucfirst(key)}`] = function(value) {
         setAttributes({
           [key]: value,
         });
@@ -41,5 +41,5 @@ export const getStore = (props, manifest) => {
     }
   }
 
-  return storeOutput;
+  return actionsOutput;
 };

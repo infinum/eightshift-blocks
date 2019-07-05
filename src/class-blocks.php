@@ -222,6 +222,17 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
   }
 
   /**
+   * Get block parent path
+   *
+   * @return string
+   *
+   * @since 1.0.0
+   */
+  protected function get_block_parent_folder() : string {
+    return 'src/blocks';
+  }
+
+  /**
    * Get block view path.
    *
    * @param string $block_name Block Name value.
@@ -231,7 +242,7 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
    * @since 1.0.0
    */
   protected function get_block_view_path( string $block_name ) : string {
-    return "src/blocks/custom/{$block_name}/{$block_name}.php";
+    return "{$this->get_block_parent_folder()}/custom/{$block_name}/{$block_name}.php";
   }
 
   /**
@@ -242,6 +253,6 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
    * @since 1.0.0
    */
   protected function get_block_wrapper_view_path() {
-    return 'src/blocks/components/wrapper-block/wrapper-block.php';
+    return "{$this->get_block_parent_folder()}/components/wrapper/wrapper.php";
   }
 }

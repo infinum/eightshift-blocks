@@ -9,7 +9,7 @@
 
 namespace Eightshift_Blocks;
 
-use Eightshift_Blocks\Blocks_Data;
+use Eightshift_Blocks\Attributes;
 use Eightshift_Blocks\Renderable_Block;
 use Eightshift_Blocks\Exception\Missing_Block_Wrapper_View;
 use Eightshift_Blocks\Exception\Missing_Block_View;
@@ -19,7 +19,7 @@ use Eightshift_Blocks\Exception\Missing_Block_View;
  *
  * @since 1.0.0
  */
-abstract class Blocks extends Blocks_Data implements Renderable_Block {
+abstract class Blocks extends Attributes implements Renderable_Block {
 
   /**
    * Register all the hooks
@@ -57,26 +57,25 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
   }
 
   /**
-   * Get blocks attributes.
-   * This method combines default, block and shared attributes.
-   * Default attributes are hardcoded in this lib.
-   * Block attributes are provided by block manifest.json file.
-   * Shared attributes are provided by blocks settings manifest.json file and is only available if block has `hasWrapper:true` settings.
+   * Method used to really register Gutenberg blocks.
+   * It used nativ register_block_type method from WP.
+   * Render method is provided depending on the hasWrapper key.
    *
    * @param array $block_details Block Manifest details.
    *
-   * @return array
+   * @return void
+   *
+   * @since 1.0.0
    */
-  public function get_attributes( array $block_details ) : array {
+  public function register_block( array $block_details ) {
+    $render = $block_details['hasWrapper'] ? 'render_wrapper' : 'render';
 
-    $default_attributes      = $this->get_default_attributes( $block_details );
-    $block_attributes        = $this->get_block_attributes( $block_details );
-    $block_shared_attributes = ( $block_details['hasWrapper'] === true ) ? $this->get_blocks_shared_attributes() : [];
-
-    return array_merge(
-      $default_attributes,
-      $block_attributes,
-      $block_shared_attributes
+    register_block_type(
+      $this->get_block_full_name( $block_details ),
+      array(
+        'render_callback' => [ $this, $render ],
+        'attributes' => $this->get_attributes( $block_details ),
+      )
     );
   }
 
@@ -106,22 +105,20 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
     $wrapper_path = $this->get_block_wrapper_view_path();
 
     // Check if wrapper componet exists.
-    $wrapper = locate_template( $wrapper_path );
-    if ( empty( $wrapper ) ) {
+    if ( ! file_exists( $wrapper_path ) ) {
       throw Missing_Block_Wrapper_View::view_wrapper_exception( $block_name, $wrapper_path );
     }
 
     // Check if actual block exists.
-    $template = locate_template( $template_path );
-    if ( empty( $template ) ) {
+    if ( ! file_exists( $template_path ) ) {
       throw Missing_Block_View::view_exception( $block_name, $template_path );
     }
 
     // If everything is ok, return the contents of the template (return, NOT echo).
     ob_start();
-    include $wrapper;
+    include $wrapper_path;
     $output = ob_get_clean();
-    unset( $attributes, $inner_block_content, $wrapper, $template, $template_path, $wrapper_path, $props );
+    unset( $block_name, $template_path, $wrapper_path, $attributes, $inner_block_content );
     return $output;
   }
 
@@ -147,112 +144,15 @@ abstract class Blocks extends Blocks_Data implements Renderable_Block {
     $template_path = $this->get_block_view_path( $block_name );
 
     // Check if actual block exists.
-    $template = locate_template( $template_path );
-    if ( empty( $template ) ) {
+    if ( ! file_exists( $template_path ) ) {
       throw Missing_Block_View::view_exception( $block_name, $template_path );
     }
 
     // If everything is ok, return the contents of the template (return, NOT echo).
     ob_start();
-    include $template;
+    include $template_path;
     $output = ob_get_clean();
-    unset( $attributes, $inner_block_content, $template, $props );
+    unset( $block_name, $template_path, $attributes, $inner_block_content );
     return $output;
-  }
-
-  /**
-   * Method used to really register Gutenberg blocks.
-   * It used nativ register_block_type method from WP.
-   * Render method is provided depending on the hasWrapper key.
-   *
-   * @param array $block_details Block Manifest details.
-   *
-   * @return void
-   *
-   * @since 1.0.0
-   */
-  public function register_block( array $block_details ) {
-    $render = $block_details['hasWrapper'] ? 'render_wrapper' : 'render';
-
-    register_block_type(
-      $this->get_block_full_name( $block_details ),
-      array(
-        'render_callback' => [ $this, $render ],
-        'attributes' => $this->get_attributes( $block_details ),
-      )
-    );
-  }
-
-  /**
-   * Get default attributes that are dynamically built for all custom blocks.
-   * These are:
-   * - blockName: Block's name (example: heading)
-   * - blockFullName: Block's full name including namespace (example: eightshift-libs/heading)
-   * - rootClass: Block's root (base) BEM CSS class, built in "block/$name" format (example: block-heading)
-   * - jsClass:   Block's js selector class, built in "js-block-$name" format (example: js-block-heading)
-   *
-   * @param array $block_details Block Manifest details.
-   *
-   * @return array
-   *
-   * @since 1.0.0
-   */
-  protected function get_default_attributes( array $block_details ) : array {
-    $block_name      = $this->get_block_name( $block_details );
-    $block_full_name = $this->get_block_full_name( $block_details );
-
-    return [
-      'blockName' => array(
-        'type' => 'string',
-        'default' => $block_name,
-      ),
-      'blockFullName' => array(
-        'type' => 'string',
-        'default' => $block_full_name,
-      ),
-      'rootClass' => array(
-        'type' => 'string',
-        'default' => "block-{$block_name}",
-      ),
-      'jsClass' => array(
-        'type' => 'string',
-        'default' => "js-block-{$block_name}",
-      ),
-    ];
-  }
-
-  /**
-   * Get block parent path
-   *
-   * @return string
-   *
-   * @since 1.0.0
-   */
-  protected function get_block_parent_folder() : string {
-    return 'src/blocks';
-  }
-
-  /**
-   * Get block view path.
-   *
-   * @param string $block_name Block Name value.
-   *
-   * @return string
-   *
-   * @since 1.0.0
-   */
-  protected function get_block_view_path( string $block_name ) : string {
-    return "{$this->get_block_parent_folder()}/custom/{$block_name}/{$block_name}.php";
-  }
-
-  /**
-   * Get block wrapper view path.
-   *
-   * @return string
-   *
-   * @since 1.0.0
-   */
-  protected function get_block_wrapper_view_path() {
-    return "{$this->get_block_parent_folder()}/components/wrapper/wrapper.php";
   }
 }

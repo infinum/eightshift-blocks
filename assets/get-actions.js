@@ -26,8 +26,8 @@ export const getActions = (props, manifest) => {
     // If key doesn't exists skip this iteration.
     if (attributes.hasOwnProperty(key)) {
 
-      // If useManual key is set to true skip this attribute from actions output. 
-      if (attributes[key].hasOwnProperty('useManual')) {
+      // If useManual key is set to true skip this attribute from actions output.
+      if (attributes[key].hasOwnProperty('manualAction')) {
         continue;
       }
 

@@ -8,10 +8,8 @@
 
 namespace Project_Namespace\Blocks;
 
-$root_class = $attributes['rootClass'] ?? '';
-$content    = $attributes['content'] ?? '';
-
-$block_class = $root_class;
+$block_class = $attributes['blockClass'] ?? '';
+$content     = $attributes['content'] ?? '';
 
 ?>
 

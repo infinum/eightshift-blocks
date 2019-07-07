@@ -4,15 +4,13 @@ import { RichText } from '@wordpress/editor';
 export const ExampleEditor = (props) => {
   const {
     attributes: {
-      rootClass,
+      blockClass,
       content,
     },
-    attributesStore: {
+    actions: {
       onChangeContent,
     },
   } = props;
-
-  const blockClass = rootClass;
 
   return (
     <RichText

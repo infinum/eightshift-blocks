@@ -1,0 +1,114 @@
+$wrapper: (
+  background-colors: (
+    'default': $base-background-color,
+    'primary': $base-primary-color,
+    'black': $base-black-color,
+  ),
+  text-colors: (
+    'default': $base-text-color,
+  ),
+  spacings: (
+    biggest:    100px,
+    bigger:     90px,
+    big:        80px,
+    largest:    70px,
+    larger:     60px,
+    large:      50px,
+    default:    40px,
+    medium:     30px,
+    small:      20px,
+    tiny:       10px,
+    no-spacing: 0
+  ),
+  container-spacings: (
+    default: $base-gutter-size,
+    no-spacing: 0,
+  ),
+  containers: (
+    default: 1330px,
+    medium: 1110px,
+    no-width: auto,
+  ),
+);
+
+.wrapper {
+  $this: &;
+  position: relative;
+
+  &__show-only-mobile--true {
+    @include media(tablet up) {
+      display: none;
+    }
+  }
+
+  &__spacing-top {
+    @include modifiers(map-get-strict($wrapper, spacings), padding-top);
+  }
+
+  &__spacing-top-tablet {
+    @include media(tablet) {
+      @include modifiers(map-get-strict($wrapper, spacings), padding-top);
+    }
+  }
+
+  &__spacing-top-mobile {
+    @include media(mobile down) {
+      @include modifiers(map-get-strict($wrapper, spacings), padding-top);
+    }
+  }
+
+  &__spacing-bottom {
+    @include modifiers(map-get-strict($wrapper, spacings), padding-bottom);
+  }
+
+  &__spacing-bottom-tablet {
+    @include media(tablet) {
+      @include modifiers(map-get-strict($wrapper, spacings), padding-bottom);
+    }
+  }
+
+  &__spacing-bottom-mobile {
+    @include media(mobile down) {
+      @include modifiers(map-get-strict($wrapper, spacings), padding-bottom);
+    }
+  }
+
+  &__bg-color {
+    @include modifiers(map-get-strict($wrapper, background-colors), background-color);
+  }
+
+  &__text-color {
+    @include modifiers(map-get-strict($wrapper, text-colors), color);
+  }
+
+  &__container {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+  }
+
+  &__container-spacing {
+    @include modifiers(map-get-strict($wrapper, container-spacings), padding-left);
+    @include modifiers(map-get-strict($wrapper, container-spacings), padding-right);
+  }
+
+  &__container-width {
+    @include modifiers(map-get-strict($wrapper, containers), max-width);
+  }
+
+  &__inner {
+    @include flex-grid-width;
+  }
+
+  &__width {
+    @include media(desktop up) {
+      @include grid-width-modifiers($wrapper: #{$this}__inner);
+    }
+  }
+
+  &__inner-offset {
+    &--center {
+      margin: 0 auto;
+    }
+  }
+}

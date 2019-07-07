@@ -1,6 +1,9 @@
-import { Fragment } from '@wordpress/element';
-import { getStore } from 'EighshiftBlocksGetStore';
-import manifest from './manifest.json.js';
+import { InspectorControls } from '@wordpress/editor';
+
+import { getActions } from 'EighshiftBlocksGetActions';
+import manifest from './manifest.json';
+
+import { Wrapper } from './../../wrapper/wrapper';
 import { ExampleEditor } from './components/example-editor';
 import { ExampleOptions } from './components/example-options';
 
@@ -9,20 +12,22 @@ export const Example = (props) => {
     attributes,
   } = props;
 
-  const attributesStore = getStore(props, manifest);
+  const actions = getActions(props, manifest);
 
   return (
-    <Fragment>
+    <Wrapper
+      props={props}
+    >
       <InspectorControls>
         <ExampleOptions
           attributes={attributes}
-          attributesStore={attributesStore}
+          actions={actions}
         />
       </InspectorControls>
       <ExampleEditor
         attributes={attributes}
-        attributesStore={attributesStore}
+        actions={actions}
       />
-    </Fragment>
+    </Wrapper>
   );
 };

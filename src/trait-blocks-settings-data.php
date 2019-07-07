@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Blocks_Settings_Data holds abstract class for Gutenberg blocks data.
+ * Class Blocks_Settings_Data holds registration of global variable for cache and storing blocks settings manifest data.
  *
  * @since   1.0.0
  * @package Eightshift_Blocks
@@ -9,6 +9,7 @@
 namespace Eightshift_Blocks;
 
 use Eightshift_Blocks\Exception\Missing_Blocks_Manifest;
+use Eightshift_Blocks\Exception\Missing_Block_Namespace;
 
 /**
  * Class Blocks_Settings_Data
@@ -56,6 +57,7 @@ trait Blocks_Settings_Data {
    * Not using array because php <= 7.0 doesn't support it.
    *
    * @throws Exception\Missing_Blocks_Manifest Throws error if blocks manifest is missing.
+   * @throws Exception\Missing_Block_Namespace Throws error if block namespace is missing.
    *
    * @return string
    *
@@ -68,7 +70,14 @@ trait Blocks_Settings_Data {
       throw Missing_Blocks_Manifest::manifest_exception( $manifest_path );
     }
 
-    return implode( ' ', file( $manifest_path ) );
+    $settings = implode( ' ', file( ( $manifest_path ) ) );
+    $settings = json_decode( $settings, true );
+
+    if ( ! isset( $settings['namespace'] ) ) {
+      throw Missing_Block_Namespace::namespace_exception();
+    }
+
+    return wp_json_encode( $settings );
   }
 
   /**

@@ -58,7 +58,7 @@ abstract class Blocks extends Attributes implements Renderable_Block {
 
   /**
    * Method used to really register Gutenberg blocks.
-   * It used nativ register_block_type method from WP.
+   * It uses native register_block_type method from WP.
    * Render method is provided depending on the hasWrapper key.
    *
    * @param array $block_details Block Manifest details.

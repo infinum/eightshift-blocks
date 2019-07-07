@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Wrapper_Data holds abstract class for Gutenberg blocks data.
+ * Class Wrapper_Data holds registration of global variable for cache and storing wrapper manifest data.
  *
  * @since   1.0.0
  * @package Eightshift_Blocks

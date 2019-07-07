@@ -10,6 +10,8 @@ namespace Eightshift_Blocks;
 
 use Eightshift_Libs\Core\Service;
 use Eightshift_Blocks\Manifest_Data;
+use Eightshift_Blocks\Exception\Missing_Assets_Manifest;
+use Eightshift_Blocks\Exception\Missing_Assets_Manifest_Key;
 
 /**
  * Enqueue class.
@@ -156,6 +158,9 @@ abstract class Enqueue implements Service, Manifest_Data {
    * Manifest is used to provide key->value map of all assets and scripts.
    * It is build with webpack manifest plugin.
    *
+   * @throws Exception\Missing_Assets_Manifest Throws error if assets manifest is missing.
+   * @throws Exception\Missing_Assets_Manifest_Key Throws error if assets manifest key is missing.
+   *
    * @param string $key Manifest key to search by.
    * @return string
    *
@@ -164,7 +169,15 @@ abstract class Enqueue implements Service, Manifest_Data {
   protected function get_project_manifest_value( $key ) : string {
     $manifest = $this->get_project_manifest();
 
-    return $manifest[ $key ] ?? null;
+    if ( ! $manifest ) {
+      throw Missing_Assets_Manifest::manifest_exception();
+    }
+
+    if ( ! isset( $manifest[ $key ] ) ) {
+      throw Missing_Assets_Manifest_Key::manifest_item_exception( $key );
+    }
+
+    return $manifest[ $key ];
   }
 
   /**

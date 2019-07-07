@@ -1,7 +1,6 @@
 <?php
 /**
- * Class Attributes holds base abstract class for Gutenberg blocks registration.
- * It provides ability to register custom blocks using manifest.json setup.
+ * Class Attributes holds all attributes definitions for blocks.
  *
  * @since   1.0.0
  * @package Eightshift_Blocks
@@ -23,10 +22,10 @@ abstract class Attributes extends Blocks_Full_Data implements Attributes_Data {
 
   /**
    * Get blocks attributes.
-   * This method combines default, block and shared attributes.
+   * This method combines default, block and wrapper attributes.
    * Default attributes are hardcoded in this lib.
    * Block attributes are provided by block manifest.json file.
-   * Shared attributes are provided by blocks settings manifest.json file and is only available if block has `hasWrapper:true` settings.
+   * Wrapper attributes are provided by wrapper manifest.json file and is only available if block has `hasWrapper:true` settings.
    *
    * @param array $block_details Block Manifest details.
    *
@@ -36,7 +35,7 @@ abstract class Attributes extends Blocks_Full_Data implements Attributes_Data {
 
     $default_attributes      = $this->get_default_attributes( $block_details );
     $block_attributes        = $this->get_block_attributes( $block_details );
-    $block_shared_attributes = ( $block_details['hasWrapper'] === true ) ? $this->get_blocks_shared_attributes() : [];
+    $block_shared_attributes = ( $block_details['hasWrapper'] === true ) ? $this->get_wrapper_attributes() : [];
 
     return array_merge(
       $default_attributes,
@@ -52,17 +51,14 @@ abstract class Attributes extends Blocks_Full_Data implements Attributes_Data {
    *
    * @since 1.0.0
    */
-  protected function get_blocks_shared_attributes() : array {
-    $blocks_settings = $this->get_wrapper();
+  protected function get_wrapper_attributes() : array {
+    $wrapper_settings = $this->get_wrapper();
 
-    return $blocks_settings['attributes'] ?? [];
+    return $wrapper_settings['attributes'] ?? [];
   }
 
   /**
    * Get blocks attributes value.
-   * Set default values to attributes if they are not set.
-   *
-   * @throws Exception\Missing_Attribute_Type Throws error if attribute type is missing.
    *
    * @param array $block_details Block Manifest details.
    *
@@ -71,63 +67,16 @@ abstract class Attributes extends Blocks_Full_Data implements Attributes_Data {
    * @since 1.0.0
    */
   protected function get_block_attributes( array $block_details ) : array {
-    $attributes = $block_details['attributes'] ?? [];
-    $output     = [];
-
-    if ( empty( $attributes ) ) {
-      return $$output;
-    }
-
-    foreach ( $attributes as $attribute_key => $attribute_value ) {
-      if ( ! isset( $attribute_value['type'] ) ) {
-        throw Missing_Attribute_Type::type_exception( $this->get_block_name( $block_details ), $attribute_key );
-      }
-
-      $output[ $attribute_key ] = [
-        'type' => $attribute_value['type'],
-      ];
-
-      // If default value is set out it.
-      if ( isset( $attribute_value['default'] ) ) {
-        $output[ $attribute_key ]['default'] = $attribute_value['default'];
-      } else {
-
-        // If default value is not set output defaults by type.
-        switch ( $attribute_value['type'] ) {
-          case 'null':
-            $output[ $attribute_key ]['default'] = null;
-                break;
-          case 'boolean':
-          case 'bool':
-            $output[ $attribute_key ]['default'] = 0;
-                break;
-          case 'object':
-            $output[ $attribute_key ]['default'] = new stdClass();
-                break;
-          case 'array':
-            $output[ $attribute_key ]['default'] = [];
-                break;
-          case 'string':
-            $output[ $attribute_key ]['default'] = '';
-                break;
-          case 'number':
-          case 'integer':
-            $output[ $attribute_key ]['default'] = 0;
-                break;
-        }
-      }
-    }
-
-    return $output;
+    return $block_details['attributes'] ?? [];
   }
 
   /**
    * Get default attributes that are dynamically built for all custom blocks.
    * These are:
    * - blockName: Block's name (example: heading)
-   * - blockFullName: Block's full name including namespace (example: eightshift-libs/heading)
-   * - rootClass: Block's root (base) BEM CSS class, built in "block/$name" format (example: block-heading)
-   * - jsClass:   Block's js selector class, built in "js-block-$name" format (example: js-block-heading)
+   * - blockFullName: Block's full name including namespace (example: eightshift-blocks/heading)
+   * - blockClass: Block's root (base) BEM CSS class, built in "block/$name" format (example: block-heading)
+   * - blockJsClass:   Block's js selector class, built in "js-block-$name" format (example: js-block-heading)
    *
    * @param array $block_details Block Manifest details.
    *

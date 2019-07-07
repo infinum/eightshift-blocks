@@ -18,7 +18,7 @@ class Block_View_Helper {
   /**
    * Locate and return template part with passed attributes.
    *
-   * @param string $src                  String with URL path to template from theme root.
+   * @param string $src                  String with URL path to template.
    * @param array  $attributes           Attributes array to pass in template.
    * @param string $inner_block_content If using inner blocks content pass the data.
    *

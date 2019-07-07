@@ -12,12 +12,6 @@ use Eightshift_Libs\Core\Service;
 use Eightshift_Blocks\Blocks_Settings_Data;
 use Eightshift_Blocks\Blocks_Data;
 use Eightshift_Blocks\Wrapper_Data;
-use Eightshift_Blocks\Renderable_Block;
-use Eightshift_Blocks\Exception\Missing_Attribute_Type;
-use Eightshift_Blocks\Exception\Missing_Block_Full_Name;
-use Eightshift_Blocks\Exception\Missing_Block_Name;
-use Eightshift_Blocks\Exception\Missing_Block_Namespace;
-use Eightshift_Blocks\Exception\Missing_Blocks_Manifest;
 
 /**
  * Class Blocks_Full_Data
@@ -26,8 +20,25 @@ use Eightshift_Blocks\Exception\Missing_Blocks_Manifest;
  */
 abstract class Blocks_Full_Data implements Service {
 
+  /**
+   * Trait Blocks_Settings_Data holds blocks global settings manifest data.
+   *
+   * @since 1.0.0
+   */
   use Blocks_Settings_Data;
+
+  /**
+   * Trait Blocks_Data holds blocks manifest data.
+   *
+   * @since 1.0.0
+   */
   use Blocks_Data;
+
+  /**
+   * Trait Wrapper_Data holds wrapper manifest data.
+   *
+   * @since 1.0.0
+   */
   use Wrapper_Data;
 
   /**
@@ -48,19 +59,8 @@ abstract class Blocks_Full_Data implements Service {
   }
 
   /**
-   * Get global blocks variable name to store the cached data into.
-   *
-   * @return string
-   *
-   * @since 1.0.0
-   */
-  protected function get_blocks_variable_name() : string {
-    return $this->blocks_variable_name;
-  }
-
-  /**
    * Get Projects Theme path.
-   * If you are using a plugin override method must be provided with correct blocks folder.
+   * If you are using a plugin, override method must be provided with correct blocks folder.
    *
    * @return string
    *
@@ -89,8 +89,6 @@ abstract class Blocks_Full_Data implements Service {
   /**
    * Get blocks name value.
    *
-   * @throws Exception\Missing_Block_Name Throws error if block name is missing.
-   *
    * @param array $block_details Block Manifest details.
    *
    * @return string
@@ -98,18 +96,11 @@ abstract class Blocks_Full_Data implements Service {
    * @since 1.0.0
    */
   protected function get_block_name( array $block_details ) : ?string {
-
-    if ( ! isset( $block_details['blockName'] ) ) {
-      throw Missing_Block_Name::name_exception();
-    }
-
     return $block_details['blockName'];
   }
 
   /**
    * Get blocks fullname value.
-   *
-   * @throws Exception\Missing_Block_Full_Name Throws error if block fullname is missing.
    *
    * @param array $block_details Block Manifest details.
    *
@@ -118,17 +109,11 @@ abstract class Blocks_Full_Data implements Service {
    * @since 1.0.0
    */
   protected function get_block_full_name( array $block_details ) : ?string {
-    if ( ! isset( $block_details['blockFullName'] ) ) {
-      throw Missing_Block_Full_Name::name_exception();
-    }
-
     return $block_details['blockFullName'];
   }
 
   /**
    * Get blocks namespace value from blocks global settings.
-   *
-   * @throws Exception\Missing_Block_Namespace Throws error if block namespace is missing.
    *
    * @return string
    *
@@ -136,10 +121,6 @@ abstract class Blocks_Full_Data implements Service {
    */
   protected function get_blocks_namespace() : ?string {
     $settings = $this->get_blocks_settings();
-
-    if ( ! isset( $settings['namespace'] ) ) {
-      throw Missing_Block_Namespace::namespace_exception();
-    }
 
     return $settings['namespace'];
   }

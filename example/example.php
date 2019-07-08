@@ -3,10 +3,10 @@
  * Template for the Example Block view.
  *
  * @since 1.0.0
- * @package Project_Namespace\Blocks.
+ * @package Inf_theme\Blocks.
  */
 
-namespace Project_Namespace\Blocks;
+namespace Inf_theme\Blocks;
 
 $block_class = $attributes['blockClass'] ?? '';
 $content     = $attributes['content'] ?? '';

@@ -8,14 +8,17 @@
 
 namespace Inf_theme\Blocks\Components;
 
-$block_class = $attributes['blockClass'] ?? '';
-$title       = $attributes['title'] ?? '';
-$url         = $attributes['url'] ?? '';
-$color       = $attributes['styleColor'] ?? '';
+$title = $attributes['title'] ?? '';
+$url   = $attributes['url'] ?? '';
+
+$component_class = 'link';
+$block_class     = $attributes['blockClass'] ?? '';
+$style_color     = $attributes['styleColor'] ?? '';
 
 $link_class = "
+  {$component_class}
+  {$component_class}__color--{$style_color}
   {$block_class}__link
-  link__color--{$color}
 ";
 ?>
 

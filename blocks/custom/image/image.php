@@ -3,10 +3,10 @@
  * Template for the Image Block view.
  *
  * @since 1.0.0
- * @package Project_Namespace\Blocks.
+ * @package Inf_theme\Blocks.
  */
 
-namespace Project_Namespace\Blocks;
+namespace Inf_theme\Blocks;
 
 use Eightshift_Blocks\Helpers\Block_View_Helper;
 

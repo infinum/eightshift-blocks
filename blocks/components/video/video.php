@@ -1,18 +1,25 @@
 <?php
 /**
- * Template for the Image.
+ * Template for the Video.
  *
  * @since 1.0.0
- * @package Academy\Blocks.
+ * @package Inf_theme\Blocks.
  */
 
-namespace Academy\Blocks;
+namespace Inf_theme\Blocks;
 
-$block_class = $attributes['blockClass'] ?? '';
-$url         = $attributes['url'] ?? '';
+$url = $attributes['url'] ?? '';
+
+$component_class = 'video';
+$block_class     = $attributes['blockClass'] ?? '';
+
+$video_class = "
+  {$component_class}
+  {$block_class}__video
+";
 
 ?>
 
-<video class="<?php echo esc_attr( $block_class ); ?>" autoplay loop muted>
+<video class="<?php echo esc_attr( $video_class ); ?>" autoplay loop muted>
   <source src="<?php echo esc_url( $url ); ?>" type="video/mp4">
 </video>

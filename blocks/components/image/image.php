@@ -3,19 +3,26 @@
  * Template for the Image.
  *
  * @since 1.0.0
- * @package Academy\Blocks.
+ * @package Inf_theme\Blocks.
  */
 
-namespace Academy\Blocks;
+namespace Inf_theme\Blocks;
 
-$block_class = $attributes['blockClass'] ?? '';
-$size        = $attributes['size'] ?? 'large';
+$size = $attributes['size'] ?? 'large';
+
+$component_class = 'image';
+$block_class     = $attributes['blockClass'] ?? '';
+
+$image_class = "
+  {$component_class}
+  {$block_class}__img
+";
 
 $media = \wp_get_attachment_image(
   $attributes['id'],
   $size,
   '',
-  [ 'class' => $block_class ]
+  [ 'class' => $image_class ]
 );
 
 echo wp_kses_post( $media );

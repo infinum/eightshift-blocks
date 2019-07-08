@@ -66,7 +66,7 @@ abstract class Blocks_Full_Data implements Service {
    *
    * @since 1.0.0
    */
-  protected function get_blocks_path() : string {
+  public static function get_blocks_path() : string {
     return get_template_directory() . '/src/blocks';
   }
 

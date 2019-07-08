@@ -74,12 +74,6 @@ trait Blocks_Data {
    * @since 1.0.0
    */
   protected function get_blocks_raw() : string {
-    $blocks     = [];
-    $all_blocks = glob( "{$this->get_blocks_custom_path()}/*/manifest.json" );
-
-    if ( empty( $all_blocks ) ) {
-      return $blocks;
-    }
 
     $namespace = $this->get_blocks_namespace();
 
@@ -98,7 +92,7 @@ trait Blocks_Data {
 
         return $this->set_manifest_defaults( $block );
       },
-      $all_blocks
+      glob( "{$this->get_blocks_custom_path()}/*/manifest.json" )
     );
 
     return wp_json_encode( $blocks );

@@ -45,140 +45,140 @@ export const WrapperOptions = (props) => {
   }
 
   const spacingOptions = [
-    { label: __('Not Set', 'inf_theme'), value: '' },
-    { label: __('Biggest (100px)', 'inf_theme'), value: 'biggest' },
-    { label: __('Bigger (90px)', 'inf_theme'), value: 'bigger' },
-    { label: __('Big (80px)', 'inf_theme'), value: 'big' },
-    { label: __('Largest (70px)', 'inf_theme'), value: 'largest' },
-    { label: __('Larger (60px)', 'inf_theme'), value: 'larger' },
-    { label: __('Large (50px)', 'inf_theme'), value: 'large' },
-    { label: __('Default (40px)', 'inf_theme'), value: 'default' },
-    { label: __('Medium (30px)', 'inf_theme'), value: 'medium' },
-    { label: __('Small (20px)', 'inf_theme'), value: 'small' },
-    { label: __('Tiny (10px)', 'inf_theme'), value: 'tiny' },
-    { label: __('No padding (0px)', 'inf_theme'), value: 'no-spacing' },
+    { label: __('Not Set', 'eightshift-blocks'), value: '' },
+    { label: __('Biggest (100px)', 'eightshift-blocks'), value: 'biggest' },
+    { label: __('Bigger (90px)', 'eightshift-blocks'), value: 'bigger' },
+    { label: __('Big (80px)', 'eightshift-blocks'), value: 'big' },
+    { label: __('Largest (70px)', 'eightshift-blocks'), value: 'largest' },
+    { label: __('Larger (60px)', 'eightshift-blocks'), value: 'larger' },
+    { label: __('Large (50px)', 'eightshift-blocks'), value: 'large' },
+    { label: __('Default (40px)', 'eightshift-blocks'), value: 'default' },
+    { label: __('Medium (30px)', 'eightshift-blocks'), value: 'medium' },
+    { label: __('Small (20px)', 'eightshift-blocks'), value: 'small' },
+    { label: __('Tiny (10px)', 'eightshift-blocks'), value: 'tiny' },
+    { label: __('No padding (0px)', 'eightshift-blocks'), value: 'no-spacing' },
   ];
 
   return (
-    <PanelBody title={__('Utility', 'inf_theme')}>
-      <h3>{__('Colors', 'inf_theme')}</h3>
+    <PanelBody title={__('Utility', 'eightshift-blocks')}>
+      <h3>{__('Colors', 'eightshift-blocks')}</h3>
       <SelectControl
-        label={__('Background Color', 'inf_theme')}
+        label={__('Background Color', 'eightshift-blocks')}
         value={styleBackgroundColor}
         options={[
-          { label: __('Default', 'inf_theme'), value: 'default' },
-          { label: __('Primary', 'inf_theme'), value: 'primary' },
-          { label: __('Black', 'inf_theme'), value: 'black' },
+          { label: __('Default', 'eightshift-blocks'), value: 'default' },
+          { label: __('Primary', 'eightshift-blocks'), value: 'primary' },
+          { label: __('Black', 'eightshift-blocks'), value: 'black' },
         ]}
         onChange={onChangeStyleBackgroundColor}
       />
       <SelectControl
-        label={__('Text Color', 'inf_theme')}
+        label={__('Text Color', 'eightshift-blocks')}
         value={styleTextColor}
         options={[
-          { label: __('Default', 'inf_theme'), value: 'default' },
+          { label: __('Default', 'eightshift-blocks'), value: 'default' },
         ]}
         onChange={onChangeStyleTextColor}
       />
 
       <hr />
-      <h3>{__('Content', 'inf_theme')}</h3>
+      <h3>{__('Content', 'eightshift-blocks')}</h3>
       <SelectControl
-        label={__('Content Width', 'inf_theme')}
+        label={__('Content Width', 'eightshift-blocks')}
         value={styleContentWidth}
         options={colsOutput}
         onChange={onChangeStyleContentWidth}
       />
       <SelectControl
-        label={__('Content Offset', 'inf_theme')}
+        label={__('Content Offset', 'eightshift-blocks')}
         value={styleContentOffset}
         options={[
-          { label: __('No offset', 'inf_theme'), value: 'none' },
-          { label: __('Center', 'inf_theme'), value: 'center' },
+          { label: __('No offset', 'eightshift-blocks'), value: 'none' },
+          { label: __('Center', 'eightshift-blocks'), value: 'center' },
         ]}
         onChange={onChangeStyleContentOffset}
       />
 
       <hr />
-      <h3>{__('Container', 'inf_theme')}</h3>
+      <h3>{__('Container', 'eightshift-blocks')}</h3>
       <SelectControl
-        label={__('Container Width', 'inf_theme')}
+        label={__('Container Width', 'eightshift-blocks')}
         value={styleContainerWidth}
         options={[
-          { label: __('Default', 'inf_theme'), value: 'default' },
-          { label: __('Medium', 'inf_theme'), value: 'medium' },
-          { label: __('No Width', 'inf_theme'), value: 'no-width' },
+          { label: __('Default', 'eightshift-blocks'), value: 'default' },
+          { label: __('Medium', 'eightshift-blocks'), value: 'medium' },
+          { label: __('No Width', 'eightshift-blocks'), value: 'no-width' },
         ]}
         onChange={onChangeStyleContainerWidth}
       />
       <SelectControl
-        label={__('Container Spacing', 'inf_theme')}
+        label={__('Container Spacing', 'eightshift-blocks')}
         value={styleContainerSpacing}
         options={[
-          { label: __('Default', 'inf_theme'), value: 'default' },
-          { label: __('No Spacing', 'inf_theme'), value: 'no-spacing' },
+          { label: __('Default', 'eightshift-blocks'), value: 'default' },
+          { label: __('No Spacing', 'eightshift-blocks'), value: 'no-spacing' },
         ]}
         onChange={onChangeStyleContainerSpacing}
       />
 
       <hr />
-      <h3>{__('Spacing TOP', 'inf_theme')}</h3>
+      <h3>{__('Spacing TOP', 'eightshift-blocks')}</h3>
       <SelectControl
-        label={__('Desktop', 'inf_theme')}
+        label={__('Desktop', 'eightshift-blocks')}
         value={styleSpacingTop}
         options={spacingOptions}
         onChange={onChangeStyleSpacingTop}
       />
       <SelectControl
-        label={__('Tablet', 'inf_theme')}
+        label={__('Tablet', 'eightshift-blocks')}
         value={styleSpacingTopTablet}
         options={spacingOptions}
         onChange={onChangeStyleSpacingTopTablet}
       />
       <SelectControl
-        label={__('Mobile', 'inf_theme')}
+        label={__('Mobile', 'eightshift-blocks')}
         value={styleSpacingTopMobile}
         options={spacingOptions}
         onChange={onChangeStyleSpacingTopMobile}
       />
 
       <hr />
-      <h3>{__('Spacing BOTTOM', 'inf_theme')}</h3>
+      <h3>{__('Spacing BOTTOM', 'eightshift-blocks')}</h3>
       <SelectControl
-        label={__('Desktop', 'inf_theme')}
+        label={__('Desktop', 'eightshift-blocks')}
         value={styleSpacingBottom}
         options={spacingOptions}
         onChange={onChangeStyleSpacingBottom}
       />
       <SelectControl
-        label={__('Tablet', 'inf_theme')}
+        label={__('Tablet', 'eightshift-blocks')}
         value={styleSpacingBottomTablet}
         options={spacingOptions}
         onChange={onChangeStyleSpacingBottomTablet}
       />
       <SelectControl
-        label={__('Mobile', 'inf_theme')}
+        label={__('Mobile', 'eightshift-blocks')}
         value={styleSpacingBottomMobile}
         options={spacingOptions}
         onChange={onChangeStyleSpacingBottomMobile}
       />
 
       <hr />
-      <h3>{__('Visibility', 'inf_theme')}</h3>
+      <h3>{__('Visibility', 'eightshift-blocks')}</h3>
       <SelectControl
-        label={__('Show Block Only On Mobile', 'inf_theme')}
+        label={__('Show Block Only On Mobile', 'eightshift-blocks')}
         value={styleShowOnlyMobile}
         options={[
-          { label: __('False', 'inf_theme'), value: 'false' },
-          { label: __('True', 'inf_theme'), value: 'true' },
+          { label: __('False', 'eightshift-blocks'), value: 'false' },
+          { label: __('True', 'eightshift-blocks'), value: 'true' },
         ]}
         onChange={onChangeStyleShowOnlyMobile}
       />
       
       <hr />
-      <h3>{__('General', 'inf_theme')}</h3>
+      <h3>{__('General', 'eightshift-blocks')}</h3>
       <TextControl
-        label={__('Section ID', 'inf_theme')}
+        label={__('Section ID', 'eightshift-blocks')}
         value={id}
         onChange={onChangeId}
       />

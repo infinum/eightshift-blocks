@@ -1,0 +1,14 @@
+$link: (
+  colors: (
+    default: (
+      color: $base-primary-color,
+      hover: $base-black-color,
+    ),
+  )
+);
+
+.link {
+  &__color {
+    @include link-modifiers(map-get-strict($link, colors));
+  }
+}

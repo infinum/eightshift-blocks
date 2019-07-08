@@ -82,28 +82,3 @@ $btn: (
     @include responsive-modifiers($btn, sizes);
   }
 }
-
-
-$res-map: (
-  paragraph: (
-    mobile: (
-      font-size: 10px,
-      line-height: 1,
-      margin: 10px,
-    ),
-    tablet: (
-      font-size: 20px,
-      line-height: 2,
-      margin: 20px,
-    ),
-    desktop: (
-      font-size: 30px,
-      line-height: 3,
-      margin: 30px,
-    ),
-  ),
-);
-
-.paragraph1 {
-  @include responsive($res-map, paragraph);
-}

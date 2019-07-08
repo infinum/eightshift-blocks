@@ -23,6 +23,8 @@ abstract class Blocks_Full_Data implements Service {
   /**
    * Trait Blocks_Settings_Data holds blocks global settings manifest data.
    *
+   * @var object
+   *
    * @since 1.0.0
    */
   use Blocks_Settings_Data;
@@ -30,12 +32,16 @@ abstract class Blocks_Full_Data implements Service {
   /**
    * Trait Blocks_Data holds blocks manifest data.
    *
+   * @var object
+   *
    * @since 1.0.0
    */
   use Blocks_Data;
 
   /**
    * Trait Wrapper_Data holds wrapper manifest data.
+   *
+   * @var object
    *
    * @since 1.0.0
    */

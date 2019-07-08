@@ -3,10 +3,10 @@
  * Template for the Link Component.
  *
  * @since 1.0.0
- * @package Inf_theme\Blocks\Components.
+ * @package Eightshift_Boilerplate\Blocks.
  */
 
-namespace Inf_theme\Blocks\Components;
+namespace Eightshift_Boilerplate\Blocks;
 
 $title = $attributes['title'] ?? '';
 $url   = $attributes['url'] ?? '';

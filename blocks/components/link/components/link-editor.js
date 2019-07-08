@@ -20,7 +20,7 @@ export const LinkEditor = (props) => {
 
   return (
     <RichText
-      placeholder={__('Add Link Title', 'eightshift-blocks')}
+      placeholder={__('Add Link Title', 'eightshift_boilerplate')}
       value={title}
       onChange={onChangeTitle}
       className={linkClass}

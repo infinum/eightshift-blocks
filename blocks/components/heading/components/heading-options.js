@@ -16,11 +16,11 @@ export const HeadingOptions = (props) => {
   } = props;
 
   return (
-    <PanelBody title={__('Heading Details', 'eightshift-blocks')}>
+    <PanelBody title={__('Heading Details', 'eightshift_boilerplate')}>
 
       {level &&
         <div>
-          <p>{__('Heading Level', 'eightshift-blocks')}</p>
+          <p>{__('Heading Level', 'eightshift_boilerplate')}</p>
           <HeadingToolbar
             minLevel={1}
             maxLevel={7}
@@ -33,11 +33,11 @@ export const HeadingOptions = (props) => {
 
       {styleColor &&
         <SelectControl
-          label={__('Heading Color', 'eightshift-blocks')}
+          label={__('Heading Color', 'eightshift_boilerplate')}
           value={styleColor}
           options={[
-            { label: __('Default', 'eightshift-blocks'), value: 'default' },
-            { label: __('Primary', 'eightshift-blocks'), value: 'primary' },
+            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
+            { label: __('Primary', 'eightshift_boilerplate'), value: 'primary' },
           ]}
           onChange={onChangeStyleColor}
         />
@@ -45,7 +45,7 @@ export const HeadingOptions = (props) => {
 
       {styleAlign &&
         <div>
-          <p>{__('Heading Text Alignment', 'eightshift-blocks')}</p>
+          <p>{__('Heading Text Alignment', 'eightshift_boilerplate')}</p>
           <AlignmentToolbar
             value={styleAlign}
             onChange={onChangeStyleAlign}
@@ -56,11 +56,11 @@ export const HeadingOptions = (props) => {
 
       {styleSize &&
         <SelectControl
-          label={__('Heading Size', 'eightshift-blocks')}
+          label={__('Heading Size', 'eightshift_boilerplate')}
           value={styleSize}
           options={[
-            { label: __('Default', 'eightshift-blocks'), value: 'default' },
-            { label: __('Big', 'eightshift-blocks'), value: 'big' },
+            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
+            { label: __('Big', 'eightshift_boilerplate'), value: 'big' },
           ]}
           onChange={onChangeStyleSize}
         />

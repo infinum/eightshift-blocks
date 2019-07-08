@@ -3,10 +3,10 @@
  * Enqueue class used to define all script and style enqueues for Gutenberg blocks.
  *
  * @since   1.0.0
- * @package Inf_Theme\Blocks
+ * @package Eightshift_Boilerplate\Blocks
  */
 
-namespace Inf_Theme\Blocks;
+namespace Eightshift_Boilerplate\Blocks;
 
 use Eightshift_Blocks\Enqueue as Lib_Enqueue;
 use Eightshift_Libs\Assets\Manifest_Data;

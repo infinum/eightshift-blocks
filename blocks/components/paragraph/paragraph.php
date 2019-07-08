@@ -3,10 +3,10 @@
  * Template for the Paragraph Block view.
  *
  * @since 1.0.0
- * @package Inf_Theme\Blocks.
+ * @package Eightshift_Boilerplate\Blocks.
  */
 
-namespace Inf_Theme\Blocks;
+namespace Eightshift_Boilerplate\Blocks;
 
 $content = $attributes['content'] ?? '';
 

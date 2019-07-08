@@ -3,10 +3,10 @@
  * Template for the Video.
  *
  * @since 1.0.0
- * @package Inf_theme\Blocks.
+ * @package Eightshift_Boilerplate\Blocks.
  */
 
-namespace Inf_theme\Blocks;
+namespace Eightshift_Boilerplate\Blocks;
 
 $url = $attributes['url'] ?? '';
 

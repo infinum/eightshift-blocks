@@ -3,10 +3,10 @@
  * Template for the Wrapping Advance block.
  *
  * @since 1.0.0
- * @package Inf_Theme\Blocks.
+ * @package Eightshift_Boilerplate\Blocks.
  */
 
-namespace Inf_Theme\Blocks;
+namespace Eightshift_Boilerplate\Blocks;
 
 use Eightshift_Blocks\Helpers\Block_View_Helper;
 

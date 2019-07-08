@@ -3,10 +3,10 @@
  * Template for the Button Block view.
  *
  * @since 1.0.0
- * @package Inf_theme\Blocks.
+ * @package Eightshift_Boilerplate\Blocks.
  */
 
-namespace Inf_theme\Blocks;
+namespace Eightshift_Boilerplate\Blocks;
 
 use Eightshift_Blocks\Helpers\Block_View_Helper;
 

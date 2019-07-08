@@ -5,7 +5,7 @@ import { Toolbar } from '@wordpress/components';
 const createLevelControl = (targetLevel, selectedLevel, onChange) => {
   return {
     icon: 'heading',
-    title: sprintf(__('Heading %d', 'eightshift-blocks'), targetLevel),
+    title: sprintf(__('Heading %d', 'eightshift_boilerplate'), targetLevel),
     isActive: targetLevel === selectedLevel,
     onClick: () => {
       onChange(targetLevel);

@@ -11,15 +11,15 @@ export const ParagraphOptions = (props) => {
   } = props;
 
   return (
-    <PanelBody title={__('Paragraph Details', 'eightshift-blocks')}>
+    <PanelBody title={__('Paragraph Details', 'eightshift_boilerplate')}>
 
       {styleColor &&
         <SelectControl
-          label={__('Paragraph Color', 'eightshift-blocks')}
+          label={__('Paragraph Color', 'eightshift_boilerplate')}
           value={styleColor}
           options={[
-            { label: __('Default', 'eightshift-blocks'), value: 'default' },
-            { label: __('Primary', 'eightshift-blocks'), value: 'primary' },
+            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
+            { label: __('Primary', 'eightshift_boilerplate'), value: 'primary' },
           ]}
           onChange={onChangeStyleColor}
         />
@@ -27,7 +27,7 @@ export const ParagraphOptions = (props) => {
 
       {styleAlign &&
         <div>
-          <p>{__('Paragraph Text Alignment', 'eightshift-blocks')}</p>
+          <p>{__('Paragraph Text Alignment', 'eightshift_boilerplate')}</p>
           <AlignmentToolbar
             value={styleAlign}
             onChange={onChangeStyleAlign}

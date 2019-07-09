@@ -7,8 +7,8 @@
  * @since 1.0.0
  */
 
-// // Styles.
+// Styles.
 import './styles/application-blocks.scss';
 
-// // Scripts.
+// Scripts.
 import './scripts/application-blocks';

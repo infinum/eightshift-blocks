@@ -23,7 +23,7 @@ trait Wrapper_Data {
    *
    * @since 1.0.0
    */
-  protected $wrapper_variable_name = 'INF_WRAPPER';
+  protected $wrapper_variable_name = 'ES_WRAPPER';
 
   /**
    * Define global variable for wrapper settings.

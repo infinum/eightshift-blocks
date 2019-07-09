@@ -14,13 +14,16 @@ const createLevelControl = (targetLevel, selectedLevel, onChange) => {
   };
 };
 
-export const HeadingToolbar = (props) => {
+export const HeadingLevel = (props) => {
   const {
     minLevel,
     maxLevel,
     selectedLevel,
     onChange,
   } = props;
+
+  console.log(range(minLevel, maxLevel));
+  
   
   return (
     <Toolbar controls={range(minLevel, maxLevel).map((index) => createLevelControl(index, selectedLevel, onChange))} />

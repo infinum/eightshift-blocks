@@ -1,11 +1,8 @@
 import { __ } from '@wordpress/i18n';
-import { AlignmentToolbar } from '@wordpress/editor';
 import { PanelBody, SelectControl } from '@wordpress/components';
 
 export const ParagraphOptions = (props) => {
   const {
-    styleAlign,
-    onChangeStyleAlign,
     styleColor,
     onChangeStyleColor,
   } = props;
@@ -23,16 +20,6 @@ export const ParagraphOptions = (props) => {
           ]}
           onChange={onChangeStyleColor}
         />
-      }
-
-      {styleAlign &&
-        <div>
-          <p>{__('Paragraph Text Alignment', 'eightshift_boilerplate')}</p>
-          <AlignmentToolbar
-            value={styleAlign}
-            onChange={onChangeStyleAlign}
-          />
-        </div>
       }
 
     </PanelBody>

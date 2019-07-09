@@ -1,14 +1,8 @@
 import { __ } from '@wordpress/i18n';
-import { AlignmentToolbar } from '@wordpress/editor';
 import { PanelBody, SelectControl } from '@wordpress/components';
-import { HeadingToolbar } from './../../../toolbars/heading-toolbar';
 
 export const HeadingOptions = (props) => {
   const {
-    level,
-    onChangeLevel,
-    styleAlign,
-    onChangeStyleAlign,
     styleColor,
     onChangeStyleColor,
     styleSize,
@@ -17,19 +11,6 @@ export const HeadingOptions = (props) => {
 
   return (
     <PanelBody title={__('Heading Details', 'eightshift_boilerplate')}>
-
-      {level &&
-        <div>
-          <p>{__('Heading Level', 'eightshift_boilerplate')}</p>
-          <HeadingToolbar
-            minLevel={1}
-            maxLevel={7}
-            selectedLevel={level}
-            onChange={onChangeLevel}
-          />
-          <br />
-        </div>
-      }
 
       {styleColor &&
         <SelectControl
@@ -41,17 +22,6 @@ export const HeadingOptions = (props) => {
           ]}
           onChange={onChangeStyleColor}
         />
-      }
-
-      {styleAlign &&
-        <div>
-          <p>{__('Heading Text Alignment', 'eightshift_boilerplate')}</p>
-          <AlignmentToolbar
-            value={styleAlign}
-            onChange={onChangeStyleAlign}
-          />
-          <br />
-        </div>
       }
 
       {styleSize &&

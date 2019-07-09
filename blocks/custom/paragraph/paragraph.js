@@ -1,4 +1,4 @@
-import { InspectorControls } from '@wordpress/editor';
+import { InspectorControls, BlockControls } from '@wordpress/editor';
 
 import { getActions } from 'EighshiftBlocksGetActions';
 import manifest from './manifest.json';
@@ -6,6 +6,7 @@ import manifest from './manifest.json';
 import { Wrapper } from '../../wrapper/wrapper';
 import { ParagraphEditor } from '../../components/paragraph/components/paragraph-editor';
 import { ParagraphOptions } from '../../components/paragraph/components/paragraph-options';
+import { ParagraphToolbar } from '../../components/paragraph/components/paragraph-toolbar';
 
 export const Paragraph = (props) => {
   const {
@@ -31,6 +32,12 @@ export const Paragraph = (props) => {
           onChangeStyleColor={actions.onChangeStyleColor}
         />
       </InspectorControls>
+      <BlockControls>
+        <ParagraphToolbar
+          styleAlign={styleAlign}
+          onChangeStyleAlign={actions.onChangeStyleAlign}
+        />
+      </BlockControls>
       <ParagraphEditor
         blockClass={blockClass}
         content={content}

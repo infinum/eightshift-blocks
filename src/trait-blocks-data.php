@@ -25,7 +25,7 @@ trait Blocks_Data {
    *
    * @since 1.0.0
    */
-  protected $blocks_variable_name = 'INF_BLOCKS';
+  protected $blocks_variable_name = 'ES_BLOCKS';
 
   /**
    * Define global variable for all custom blocks.

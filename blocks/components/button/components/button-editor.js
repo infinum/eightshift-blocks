@@ -24,7 +24,7 @@ export const ButtonEditor = (props) => {
 
   return (
     <RichText
-      placeholder={__('Add Button Title', 'eightshift_boilerplate')}
+      placeholder={__('Add Button Title', 'eightshift-boilerplate')}
       value={title}
       onChange={onChangeTitle}
       className={buttonClass}

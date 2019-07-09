@@ -11,14 +11,14 @@ export const LinkOptions = (props) => {
   } = props;
 
   return (
-    <PanelBody title={__('Link Details', 'eightshift_boilerplate')}>
+    <PanelBody title={__('Link Details', 'eightshift-boilerplate')}>
 
       {styleColor &&
         <SelectControl
-          label={__('Color', 'eightshift_boilerplate')}
+          label={__('Color', 'eightshift-boilerplate')}
           value={styleColor}
           options={[
-            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
           ]}
           onChange={onChangeColor}
         />
@@ -26,7 +26,7 @@ export const LinkOptions = (props) => {
 
       {url &&
         <div>
-          <label htmlFor="URLInput">{__('Link', 'eightshift_boilerplate')}</label>
+          <label htmlFor="URLInput">{__('Link', 'eightshift-boilerplate')}</label>
           <URLInput
             value={url}
             onChange={onChangeUrl}

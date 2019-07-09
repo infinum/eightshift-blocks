@@ -8,15 +8,15 @@ export const ParagraphOptions = (props) => {
   } = props;
 
   return (
-    <PanelBody title={__('Paragraph Details', 'eightshift_boilerplate')}>
+    <PanelBody title={__('Paragraph Details', 'eightshift-boilerplate')}>
 
       {styleColor &&
         <SelectControl
-          label={__('Paragraph Color', 'eightshift_boilerplate')}
+          label={__('Paragraph Color', 'eightshift-boilerplate')}
           value={styleColor}
           options={[
-            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
-            { label: __('Primary', 'eightshift_boilerplate'), value: 'primary' },
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
+            { label: __('Primary', 'eightshift-boilerplate'), value: 'primary' },
           ]}
           onChange={onChangeStyleColor}
         />

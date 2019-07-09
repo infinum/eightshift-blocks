@@ -10,15 +10,15 @@ export const HeadingOptions = (props) => {
   } = props;
 
   return (
-    <PanelBody title={__('Heading Details', 'eightshift_boilerplate')}>
+    <PanelBody title={__('Heading Details', 'eightshift-boilerplate')}>
 
       {styleColor &&
         <SelectControl
-          label={__('Heading Color', 'eightshift_boilerplate')}
+          label={__('Heading Color', 'eightshift-boilerplate')}
           value={styleColor}
           options={[
-            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
-            { label: __('Primary', 'eightshift_boilerplate'), value: 'primary' },
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
+            { label: __('Primary', 'eightshift-boilerplate'), value: 'primary' },
           ]}
           onChange={onChangeStyleColor}
         />
@@ -26,11 +26,11 @@ export const HeadingOptions = (props) => {
 
       {styleSize &&
         <SelectControl
-          label={__('Heading Size', 'eightshift_boilerplate')}
+          label={__('Heading Size', 'eightshift-boilerplate')}
           value={styleSize}
           options={[
-            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
-            { label: __('Big', 'eightshift_boilerplate'), value: 'big' },
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
+            { label: __('Big', 'eightshift-boilerplate'), value: 'big' },
           ]}
           onChange={onChangeStyleSize}
         />

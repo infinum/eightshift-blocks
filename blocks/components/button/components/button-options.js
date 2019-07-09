@@ -17,15 +17,15 @@ export const ButtonOptions = (props) => {
   } = props;
 
   return (
-    <PanelBody title={__('Button Details', 'eightshift_boilerplate')}>
+    <PanelBody title={__('Button Details', 'eightshift-boilerplate')}>
 
       {styleColor &&
         <SelectControl
-          label={__('Button Color', 'eightshift_boilerplate')}
+          label={__('Button Color', 'eightshift-boilerplate')}
           value={styleColor}
           options={[
-            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
-            { label: __('Primary', 'eightshift_boilerplate'), value: 'primary' },
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
+            { label: __('Primary', 'eightshift-boilerplate'), value: 'primary' },
           ]}
           onChange={onChangeStyleColor}
         />
@@ -33,11 +33,11 @@ export const ButtonOptions = (props) => {
 
       {styleSize &&
         <SelectControl
-          label={__('Button Size', 'eightshift_boilerplate')}
+          label={__('Button Size', 'eightshift-boilerplate')}
           value={styleSize}
           options={[
-            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
-            { label: __('Big', 'eightshift_boilerplate'), value: 'big' },
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
+            { label: __('Big', 'eightshift-boilerplate'), value: 'big' },
           ]}
           onChange={onChangeStyleSize}
         />
@@ -45,11 +45,11 @@ export const ButtonOptions = (props) => {
 
       {styleSizeWidth &&
         <SelectControl
-          label={__('Button Size Width', 'eightshift_boilerplate')}
+          label={__('Button Size Width', 'eightshift-boilerplate')}
           value={styleSizeWidth}
           options={[
-            { label: __('Default', 'eightshift_boilerplate'), value: 'default' },
-            { label: __('Block', 'eightshift_boilerplate'), value: 'block' },
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
+            { label: __('Block', 'eightshift-boilerplate'), value: 'block' },
           ]}
           onChange={onChangeStyleSizeWidth}
         />
@@ -57,7 +57,7 @@ export const ButtonOptions = (props) => {
 
       {url &&
         <div>
-          <label htmlFor="URLInput">{__('Button Link', 'eightshift_boilerplate')}</label>
+          <label htmlFor="URLInput">{__('Button Link', 'eightshift-boilerplate')}</label>
           <URLInput
             value={url}
             onChange={onChangeUrl}
@@ -69,7 +69,7 @@ export const ButtonOptions = (props) => {
       {btnId &&
         <div>
           <TextControl
-            label={__('Button ID', 'eightshift_boilerplate')}
+            label={__('Button ID', 'eightshift-boilerplate')}
             value={btnId}
             onChange={onChangeBtnId}
           />

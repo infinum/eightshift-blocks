@@ -148,7 +148,7 @@ This file contains the editor and the frontend styles for the block.
 
 ### manifest.json
 This file contains all the configuration required for a block to work.
-This configuration is used in WordPress `registerBlockType` method to be able to register block.
+It's used in WordPress `registerBlockType` method to register a block.
 
 Example:
 ```json

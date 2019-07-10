@@ -184,7 +184,7 @@ Example:
 }
 ```
 
-Most of the keys are the same as `registerBlockType` method that you can find in [WordPress Handbook](https://developer.wordpress.org/block-editor/developers/block-api/block-registration/), But we also have some custom stuff here:
+Most of the keys are the same as `registerBlockType` method that you can find in [WordPress Handbook](https://developer.wordpress.org/block-editor/developers/block-api/block-registration/), but we also have some custom attributes here:
 
 #### attributes
 Attributes is an object of attributes that you define here and setup default values. These attributes are then provided for you in the editor as props, and the PHP view part as a `$attributes` variable.

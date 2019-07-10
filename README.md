@@ -191,7 +191,7 @@ Attributes key is an object of attributes that you define and set up default val
 We are using the same structure as described in [Gutenberg documentation](https://developer.wordpress.org/block-editor/developers/block-api/block-attributes/).
 
 #### hasInnerBlocks
-default: false
+`default: false`
 
 If the hasInnerBlocks key is set to true blocks, save method for inner blocks will be used. This method is used if the block has InnerBlocks. In PHP you now have `$inner_block_content` variable available.
 ```js

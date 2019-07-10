@@ -108,7 +108,7 @@ This class is used to extend Eightshift Blocks abstract class-blocks.php functio
 This class is used to extend Eightshift Enqueue abstract class-enqueue.php functionality.
 
 ### manifest.json
-This file contains some global settings for the project. It must contain `namespace` and `background` key; everything else is optional. You can store data here that you are going to share across toolbars, components, blocks.
+This file contains some global settings for the project. It must contain `namespace` and `background` keys. Everything else is optional. You can store data here that you intend to share across toolbars, components, blocks.
 
 Example:
 ```json

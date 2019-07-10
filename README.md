@@ -133,20 +133,20 @@ Block Example:
 ### block-name.js
 This file is `edit` callback component used in WordPress `registerBlockType` method.
 
-We are not using `save` callback component because this lib is used to create dynamic blocks.
+We are not using the `save` callback component because this lib is used to create dynamic blocks.
 
 ### block-name.php
-This file contains frontend part of the block used in your theme when the page reloads.
+This file contains the frontend part of the block used in your project when the page reloads.
 
 ### block-name-editor.php
 This file only contains the editor styles for the block.
 
 ### block-name-style.php
-This file contains editor and frontend styles for the block.
+This file contains the editor and the frontend styles for the block.
 
 ### manifest.json
 This file contains all the configuration required for a block to work.
-This configuration is used in WordPress `registerBlockType` method to be able to register block.
+It's used in WordPress `registerBlockType` method to register a block.
 
 Example:
 ```json
@@ -182,16 +182,16 @@ Example:
 }
 ```
 
-Most of the keys are the same as `registerBlockType` method that you can find in [WordPress Handbook](https://developer.wordpress.org/block-editor/developers/block-api/block-registration/), But we also have some custom stuff here:
+Most of the keys are the same as `registerBlockType` method that you can find in [WordPress Handbook](https://developer.wordpress.org/block-editor/developers/block-api/block-registration/), but we also have some custom attributes here:
 
 #### attributes
-Attributes is an object of attributes that you define here and setup default values. These attributes are then provided for you in the editor as props, and the PHP view part as a `$attributes` variable.
-We are using the same structure as [Gutenberg documentation](https://developer.wordpress.org/block-editor/developers/block-api/block-attributes/).
+Attributes key is an object of attributes that you define and set up default values. These attributes are then provided for you in the editor as props, and the PHP view part as an `$attributes` variable.
+We are using the same structure as described in [Gutenberg documentation](https://developer.wordpress.org/block-editor/developers/block-api/block-attributes/).
 
 #### hasInnerBlocks
-default: false
+`default: false`
 
-If the hasInnerBlocks key is set to true blocks, save method for inner blocks will be used. This method is used if the block has InnerBlocks. In PHP you now have `$inner_block_content` variable available.
+If the `hasInnerBlocks` key is set to true, blocks `save` method for inner blocks will be used. This method is used if the block has `InnerBlocks`. In PHP you now have `$inner_block_content` variable available.
 ```js
   save = () => createElement(InnerBlocks.Content);
 ```
@@ -209,4 +209,4 @@ Eightshift Blocks is maintained and sponsored by Eightshift and Infinum.
 
 ## :scroll: License
 
-Infinum WordPress Boilerplate is Copyright ©2018 Infinum. It is free software, and may be redistributed under the terms specified in the LICENSE file.
+Infinum WordPress Boilerplate is Copyright ©2019 Infinum. It is free software, and may be redistributed under the terms specified in the LICENSE file.

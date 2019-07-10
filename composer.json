@@ -6,7 +6,8 @@
     "installer",
     "plugin",
     "blocks",
-    "Gutenberg"
+    "Gutenberg",
+    "WordPress"
   ],
   "homepage": "https://eightshift.com/",
   "license": "MIT",
@@ -31,9 +32,9 @@
     "dealerdirect/phpcodesniffer-composer-installer": "^0.5"
   },
   "autoload": {
-    "psr-4": {
-      "Eightshift_Blocks\\": "src/"
-    }
+    "classmap": [
+      "src/"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true,

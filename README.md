@@ -27,8 +27,6 @@ composer require infinum/eightshift-blocks
 ## :mortar_board: Setup Blocks
 To be able to use blocks all you need to do is extend class-blocks.php abstract class and call it in your project. This method already has `add_action` for blocks registration.
 
-The best way would be to create a new class in your project and extend `class-blocks.php`.
-
 ## :mortar_board: Setup Enqueue
 To be able to use blocks, you also need to enqueue style and scripts in your project. Gutenberg uses 2 new hooks for assets registration: `enqueue_block_editor_assets` and `enqueue_block_assets`.
 
@@ -81,19 +79,19 @@ Keep in mind that `get_project_manifest` methods expect manifest.json file form 
 
 ## :rocket: Folder structure
 Your folder structure should like this:
-- src
-  - blocks
-    - assets
-    - class-blocks.php
-    - class-enqueue.php
-    - manifest.json
-    - custom
-      - block-name
-        - block-name.js
-        - block-name.php
-        - block-name-editor.scss
-        - block-name-style.scss
-        - manifest.json
+|____ src
+| |____blocks
+| | |____assets
+| | |____class-blocks.php
+| | |____class-enqueue.php
+| | |____manifest.json
+| | |____custom
+| | | |____block-name
+| | | | |____block-name.js
+| | | | |____block-name.php
+| | | | |____block-name-editor.scss
+| | | | |____block-name-style.scss
+| | | | |____manifest.json
 
 ### blocks
 This folder contains all Gutenberg blocks defined in your project.
@@ -125,12 +123,12 @@ Each block must follow a strict naming convention to be able to use all function
 All block are automatically registered in the JS and PHP part of the application if you follow this naming convention.
 
 Block Example:
-- heading
-  - heading.js
-  - heading.php
-  - heading-editor.scss
-  - heading-style.scss
-  - manifest.json
+|____heading
+| |____heading.js
+| |____heading.php
+| |____heading-editor.scss
+| |____heading-style.scss
+| |____manifest.json
 
 ### block-name.js
 This file is `edit` callback component used in WordPress `registerBlockType` method.

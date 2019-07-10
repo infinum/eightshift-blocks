@@ -134,7 +134,6 @@ abstract class Enqueue implements Service, Manifest_Data {
     \wp_enqueue_style( "{$this->get_project_name()}-block-style" );
   }
 
-
   /**
    * Enqueue blocks script for frontend only.
    *
@@ -151,33 +150,6 @@ abstract class Enqueue implements Service, Manifest_Data {
       true
     );
     \wp_enqueue_script( "{$this->get_project_name()}-block-scripts" );
-  }
-
-  /**
-   * Get project manifest value by key.
-   * Manifest is used to provide key->value map of all assets and scripts.
-   * It is build with webpack manifest plugin.
-   *
-   * @throws Exception\Missing_Assets_Manifest Throws error if assets manifest is missing.
-   * @throws Exception\Missing_Assets_Manifest_Key Throws error if assets manifest key is missing.
-   *
-   * @param string $key Manifest key to search by.
-   * @return string
-   *
-   * @since 1.0.0
-   */
-  protected function get_project_manifest_value( $key ) : string {
-    $manifest = $this->get_project_manifest();
-
-    if ( ! $manifest ) {
-      throw Missing_Assets_Manifest::manifest_exception();
-    }
-
-    if ( ! isset( $manifest[ $key ] ) ) {
-      throw Missing_Assets_Manifest_Key::manifest_item_exception( $key );
-    }
-
-    return $manifest[ $key ];
   }
 
   /**
@@ -244,5 +216,32 @@ abstract class Enqueue implements Service, Manifest_Data {
    */
   protected function get_project_version() : string {
     return $this->project_version;
+  }
+
+  /**
+   * Get project manifest value by key.
+   * Manifest is used to provide key->value map of all assets and scripts.
+   * It is build with webpack manifest plugin.
+   *
+   * @throws Exception\Missing_Assets_Manifest Throws error if assets manifest is missing.
+   * @throws Exception\Missing_Assets_Manifest_Key Throws error if assets manifest key is missing.
+   *
+   * @param string $key Manifest key to search by.
+   * @return string
+   *
+   * @since 1.0.0
+   */
+  protected function get_project_manifest_value( $key ) : string {
+    $manifest = $this->get_project_manifest();
+
+    if ( ! $manifest ) {
+      throw Missing_Assets_Manifest::manifest_exception();
+    }
+
+    if ( ! isset( $manifest[ $key ] ) ) {
+      throw Missing_Assets_Manifest_Key::manifest_item_exception( $key );
+    }
+
+    return $manifest[ $key ];
   }
 }

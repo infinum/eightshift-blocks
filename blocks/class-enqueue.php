@@ -39,6 +39,18 @@ class Enqueue extends Lib_Enqueue {
   }
 
   /**
+   * Method to provide projects manifest array.
+   * Using this manifest you are able to provide project specific implementation of assets locations.
+   *
+   * @return array
+   *
+   * @since 1.0.0
+   */
+  public function get_project_manifest() : array {
+    return $this->manifest->get_decoded_manifest_data();
+  }
+
+  /**
    * Get project name used in enqueue methods for scripts and styles.
    *
    * @return string
@@ -58,17 +70,5 @@ class Enqueue extends Lib_Enqueue {
    */
   protected function get_project_version() : string {
     return THEME_VERSION;
-  }
-
-  /**
-   * Method to provide projects manifest array.
-   * Using this manifest you are able to provide project specific implementation of assets locations.
-   *
-   * @return array
-   *
-   * @since 1.0.0
-   */
-  public function get_project_manifest() : array {
-    return $this->manifest->get_decoded_manifest_data();
   }
 }

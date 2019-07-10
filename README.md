@@ -211,4 +211,4 @@ Eightshift Blocks is maintained and sponsored by Eightshift and Infinum.
 
 ## :scroll: License
 
-Infinum WordPress Boilerplate is Copyright ©2018 Infinum. It is free software, and may be redistributed under the terms specified in the LICENSE file.
+Infinum WordPress Boilerplate is Copyright ©2019 Infinum. It is free software, and may be redistributed under the terms specified in the LICENSE file.

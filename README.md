@@ -193,7 +193,7 @@ We are using the same structure as described in [Gutenberg documentation](https:
 #### hasInnerBlocks
 `default: false`
 
-If the hasInnerBlocks key is set to true blocks, save method for inner blocks will be used. This method is used if the block has InnerBlocks. In PHP you now have `$inner_block_content` variable available.
+If the `hasInnerBlocks` key is set to true, blocks `save` method for inner blocks will be used. This method is used if the block has `InnerBlocks`. In PHP you now have `$inner_block_content` variable available.
 ```js
   save = () => createElement(InnerBlocks.Content);
 ```

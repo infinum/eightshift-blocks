@@ -10,7 +10,7 @@
 
 This repository contains all the tools you need to start building a modern [Gutenberg dynamic blocks](https://developer.wordpress.org/block-editor/tutorials/block-tutorial/creating-dynamic-blocks/), using all the latest front end development tools with simple folder structure and way to register blocks with ease.
 
-For detail implementation and in action view check [WordPress Boilerplate internal repo](https://github.com/infinum/wp-boilerplate-iternal).
+For detailed implementation and in action view check the [WordPress Boilerplate internal repo](https://github.com/infinum/wp-boilerplate-iternal).
 
 ## :rocket: Installation
 This repository is also added to the [Packagist repos](https://packagist.org/packages/infinum/eightshift-blocks), and it should be installed in your project via Composer.

@@ -10,7 +10,7 @@
 
 This repository contains all the tools you need to start building a modern [Gutenberg dynamic blocks](https://developer.wordpress.org/block-editor/tutorials/block-tutorial/creating-dynamic-blocks/), using all the latest front end development tools with simple folder structure and way to register blocks with ease.
 
-For detail implementation and in action view check [WordPress Boilerplate internal repo](https://github.com/infinum/wp-boilerplate-iternal).
+For detailed implementation and in action view check the [WordPress Boilerplate internal repo](https://github.com/infinum/wp-boilerplate-iternal).
 
 ## :rocket: Installation
 This repository is also added to the [Packagist repos](https://packagist.org/packages/infinum/eightshift-blocks), and it should be installed in your project via Composer.
@@ -106,7 +106,7 @@ This class is used to extend Eightshift Blocks abstract class-blocks.php functio
 This class is used to extend Eightshift Enqueue abstract class-enqueue.php functionality.
 
 ### manifest.json
-This file contains some global settings for the project. It must contain `namespace` and `background` key; everything else is optional. You can store data here that you are going to share across toolbars, components, blocks.
+This file contains some global settings for the project. It must contain `namespace` and `background` keys. Everything else is optional. You can store data here that you intend to share across toolbars, components, blocks.
 
 Example:
 ```json
@@ -139,7 +139,7 @@ We are not using `save` callback component because this lib is used to create dy
 This file contains frontend part of the block used in your theme when the page reloads.
 
 ### block-name-editor.php
-This file contains only editor styles for the block.
+This file only contains the editor styles for the block.
 
 ### block-name-style.php
 This file contains editor and frontend styles for the block.

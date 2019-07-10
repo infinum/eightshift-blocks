@@ -1,4 +1,4 @@
-import { InspectorControls } from '@wordpress/editor';
+import { InspectorControls, BlockControls } from '@wordpress/editor';
 
 import { getActions } from 'EighshiftBlocksGetActions';
 import manifest from './manifest.json';
@@ -6,6 +6,7 @@ import manifest from './manifest.json';
 import { Wrapper } from './../../wrapper/wrapper';
 import { ExampleEditor } from './components/example-editor';
 import { ExampleOptions } from './components/example-options';
+import { ExampleToolbar } from './components/example-toolbar';
 
 export const Example = (props) => {
   const {
@@ -24,6 +25,12 @@ export const Example = (props) => {
           actions={actions}
         />
       </InspectorControls>
+      <BlockControls>
+        <ExampleToolbar
+          attributes={attributes}
+          actions={actions}
+        />
+      </BlockControls>
       <ExampleEditor
         attributes={attributes}
         actions={actions}

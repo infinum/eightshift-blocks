@@ -141,7 +141,7 @@ We are not using `save` callback component because this lib is used to create dy
 This file contains frontend part of the block used in your theme when the page reloads.
 
 ### block-name-editor.php
-This file contains only editor styles for the block.
+This file only contains the editor styles for the block.
 
 ### block-name-style.php
 This file contains editor and frontend styles for the block.

@@ -144,7 +144,7 @@ This file contains the frontend part of the block used in your project when the 
 This file only contains the editor styles for the block.
 
 ### block-name-style.php
-This file contains editor and frontend styles for the block.
+This file contains the editor and the frontend styles for the block.
 
 ### manifest.json
 This file contains all the configuration required for a block to work.

@@ -138,7 +138,7 @@ This file is `edit` callback component used in WordPress `registerBlockType` met
 We are not using the `save` callback component because this lib is used to create dynamic blocks.
 
 ### block-name.php
-This file contains frontend part of the block used in your theme when the page reloads.
+This file contains the frontend part of the block used in your project when the page reloads.
 
 ### block-name-editor.php
 This file only contains the editor styles for the block.

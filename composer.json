@@ -1,0 +1,50 @@
+{
+  "name": "infinum/eightshift-blocks",
+  "description": "WordPress Blocks libs developed by Eightshift team to use in modern WordPress.",
+  "keywords": [
+    "composer",
+    "installer",
+    "plugin",
+    "blocks",
+    "Gutenberg",
+    "WordPress"
+  ],
+  "homepage": "https://eightshift.com/",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Eightshift team",
+      "email": "team@eightshift.com",
+      "homepage": "https://eightshift.com/",
+      "role": "Developer / IT Manager"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/infinum/eightshift-blocks/issues",
+    "source": "https://github.com/infinum/eightshift-blocks"
+  },
+  "require": {
+    "php": ">=7.0",
+    "infinum/eightshift-libs": "dev-develop"
+  },
+  "require-dev": {
+    "infinum/coding-standards-wp": "^0.4.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.5"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "process-timeout": 2000
+  },
+  "scripts": {
+    "check-cs": "@php ./vendor/bin/phpcs",
+    "fix-cs": "@php ./vendor/bin/phpcbf"
+  }
+}

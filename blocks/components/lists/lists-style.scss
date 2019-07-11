@@ -1,0 +1,11 @@
+// $lists: (
+// );
+
+.lists {
+  @extend %list-reset;
+
+  li {
+    @extend %list-reset;
+    line-height: 1;
+  }
+}

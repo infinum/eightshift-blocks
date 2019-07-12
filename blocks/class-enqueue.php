@@ -58,7 +58,7 @@ class Enqueue extends Lib_Enqueue {
    * @since 1.0.0
    */
   protected function get_project_name() : string {
-    return THEME_NAME;
+    return ES_THEME_NAME;
   }
 
   /**
@@ -69,6 +69,6 @@ class Enqueue extends Lib_Enqueue {
    * @since 1.0.0
    */
   protected function get_project_version() : string {
-    return THEME_VERSION;
+    return ES_THEME_VERSION;
   }
 }

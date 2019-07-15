@@ -93,7 +93,7 @@ abstract class Blocks extends Attributes implements Renderable_Block {
    *
    * @since 1.0.0
    */
-  public function render_wrapper( array $attributes, ?string $inner_block_content ) : string {
+  public function render_wrapper( array $attributes, $inner_block_content ) : string {
 
     // Block details is unavailable in this method so we are fetching block name via attributes.
     $block_name = $attributes['blockName'] ?? '';
@@ -135,7 +135,7 @@ abstract class Blocks extends Attributes implements Renderable_Block {
    *
    * @since 1.0.0
    */
-  public function render( array $attributes, ?string $inner_block_content ) : string {
+  public function render( array $attributes, $inner_block_content ) : string {
 
     // Block details is unavailable in this method so we are fetching block name via attributes.
     $block_name = $attributes['blockName'] ?? '';

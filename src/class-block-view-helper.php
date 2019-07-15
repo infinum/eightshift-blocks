@@ -30,7 +30,7 @@ class Block_View_Helper {
    *
    * @since 1.0.0
    */
-  public static function render_wrapper_view( string $src, array $attributes, ?string $inner_block_content = null ) {
+  public static function render_wrapper_view( string $src, array $attributes, $inner_block_content = null ) {
     if ( ! file_exists( $src ) ) {
       throw Missing_Wrapper_View_Helper::view_exception( $src );
     }
@@ -50,7 +50,7 @@ class Block_View_Helper {
    *
    * @since 1.0.0
    */
-  public static function render_block_view( string $src, array $attributes, ?string $inner_block_content = null ) {
+  public static function render_block_view( string $src, array $attributes, $inner_block_content = null ) {
     $path = Blocks_Full_Data::get_blocks_path() . $src;
     if ( ! file_exists( $path ) ) {
       throw Missing_Block_View_Helper::view_exception( $path );

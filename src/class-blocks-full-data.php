@@ -101,7 +101,7 @@ abstract class Blocks_Full_Data implements Service {
    *
    * @since 1.0.0
    */
-  protected function get_block_name( array $block_details ) : ?string {
+  protected function get_block_name( array $block_details ) : string {
     return $block_details['blockName'];
   }
 
@@ -114,7 +114,7 @@ abstract class Blocks_Full_Data implements Service {
    *
    * @since 1.0.0
    */
-  protected function get_block_full_name( array $block_details ) : ?string {
+  protected function get_block_full_name( array $block_details ) : string {
     return $block_details['blockFullName'];
   }
 
@@ -125,7 +125,7 @@ abstract class Blocks_Full_Data implements Service {
    *
    * @since 1.0.0
    */
-  protected function get_blocks_namespace() : ?string {
+  protected function get_blocks_namespace() : string {
     $settings = $this->get_blocks_settings();
 
     return $settings['namespace'];

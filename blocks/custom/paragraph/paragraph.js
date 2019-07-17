@@ -1,9 +1,9 @@
+import { Fragment } from '@wordpress/element';
 import { InspectorControls, BlockControls } from '@wordpress/editor';
 
 import { getActions } from 'EighshiftBlocksGetActions';
 import manifest from './manifest.json';
 
-import { Wrapper } from '../../wrapper/wrapper';
 import { ParagraphEditor } from '../../components/paragraph/components/paragraph-editor';
 import { ParagraphOptions } from '../../components/paragraph/components/paragraph-options';
 import { ParagraphToolbar } from '../../components/paragraph/components/paragraph-toolbar';
@@ -21,9 +21,7 @@ export const Paragraph = (props) => {
   const actions = getActions(props, manifest);
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <InspectorControls>
         <ParagraphOptions
           styleAlign={styleAlign}
@@ -45,6 +43,6 @@ export const Paragraph = (props) => {
         styleAlign={styleAlign}
         styleColor={styleColor}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

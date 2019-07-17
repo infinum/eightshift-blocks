@@ -1,9 +1,9 @@
+import { Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/editor';
 
 import { getActions } from 'EighshiftBlocksGetActions';
 import manifest from './manifest.json';
 
-import { Wrapper } from '../../wrapper/wrapper';
 import { ButtonEditor } from '../../components/button/components/button-editor';
 import { ButtonOptions } from '../../components/button/components/button-options';
 
@@ -23,9 +23,7 @@ export const Button = (props) => {
   const actions = getActions(props, manifest);
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <InspectorControls>
         <ButtonOptions
           url={url}
@@ -48,6 +46,6 @@ export const Button = (props) => {
         styleColor={styleColor}
         styleSizeWidth={styleSizeWidth}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

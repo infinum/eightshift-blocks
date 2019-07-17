@@ -1,9 +1,9 @@
+import { Fragment } from '@wordpress/element';
 import { InspectorControls, BlockControls } from '@wordpress/editor';
 
 import { getActions } from 'EighshiftBlocksGetActions';
 import manifest from './manifest.json';
 
-import { Wrapper } from '../../wrapper/wrapper';
 import { HeadingEditor } from '../../components/heading/components/heading-editor';
 import { HeadingOptions } from '../../components/heading/components/heading-options';
 import { HeadingToolbar } from '../../components/heading/components/heading-toolbar';
@@ -23,9 +23,7 @@ export const Heading = (props) => {
   const actions = getActions(props, manifest);
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <InspectorControls>
         <HeadingOptions
           styleColor={styleColor}
@@ -51,6 +49,6 @@ export const Heading = (props) => {
         styleColor={styleColor}
         styleSize={styleSize}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

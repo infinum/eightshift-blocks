@@ -1,6 +1,6 @@
+import { Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/editor';
 
-import { Wrapper } from '../../wrapper/wrapper';
 import { VideoEditor } from '../../components/video/components/video-editor';
 import { VideoOptions } from '../../components/video/components/video-options';
 
@@ -23,9 +23,7 @@ export const Video = (props) => {
   };
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <InspectorControls>
         <VideoOptions
           onChangeMedia={actions.onChangeMedia}
@@ -35,6 +33,6 @@ export const Video = (props) => {
         blockClass={blockClass}
         url={mediaUrl}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

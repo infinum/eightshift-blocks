@@ -14,10 +14,12 @@
  */
 
 import { registerBlocks } from 'EighshiftBlocksRegisterBlocks';
+import { Wrapper } from './../../wrapper/wrapper';
 import blocksSettings from './../../manifest.json';
 
 registerBlocks(
   require.context('./../../custom', true, /manifest.json$/),
   require.context('./../../custom', true, /.js$/),
-  blocksSettings
+  blocksSettings,
+  Wrapper,
 );

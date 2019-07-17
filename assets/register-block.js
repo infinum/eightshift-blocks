@@ -1,7 +1,6 @@
-/* globals @wordpress */
-
 import { InnerBlocks } from '@wordpress/editor';
 import { createElement } from '@wordpress/element';
+import { withWrapper } from './with-wrapper';
 
 /**
  * Map and prepare all options from block manifest.json file for usage in registerBlockType method.
@@ -9,10 +8,11 @@ import { createElement } from '@wordpress/element';
  * @param {object} manifest Block manifest.json object with data.
  * @param {object} blocksSettings Blocks  manifest.json object with data.
  * @param {function} edit Edit callback function.
+ * @param {function} wrapper Wrapper callback function.
  *
  * @since 1.0.0
  */
-export const registerBlock = (manifest, blocksSettings, edit) => {
+export const registerBlock = (manifest, blocksSettings, edit, wrapper = null) => {
   const {
     blockName,
     title,
@@ -21,8 +21,9 @@ export const registerBlock = (manifest, blocksSettings, edit) => {
     keywords,
     supports,
     parent,
-    hasInnerBlocks,
-    isInactive,
+    hasInnerBlocks = false,
+    isInactive = false,
+    hasWrapper = true,
   } = manifest;
 
   // If block is set to inactive it will not be registrated.
@@ -63,7 +64,7 @@ export const registerBlock = (manifest, blocksSettings, edit) => {
       keywords,
       supports,
       parent,
-      edit,
+      edit: (hasWrapper && wrapper !== null) ? withWrapper(edit, wrapper) : edit,
       save,
     },
   };

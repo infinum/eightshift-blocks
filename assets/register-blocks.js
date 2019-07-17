@@ -9,10 +9,11 @@ import { getBlockEditComponent } from './get-block-edit-component';
  * @param {function} blocksManifests Must provide require.context for all blocks manifest.json-s.
  * @param {function} blocksFilePaths Must provide require.context for all blocks javascript files (unable to add only block edit file due to dynamic naming).
  * @param {object} blocksSettings Must provide global blocks setting manifest.json.
+ * @param {function} Wrapper Wrapper callback function.
  *
  * @since 1.0.0
  */
-export const registerBlocks = (blocksManifests, blocksFilePaths, blocksSettings) => {
+export const registerBlocks = (blocksManifests, blocksFilePaths, blocksSettings, wrapperComponent = null) => {
 
   // Create an array of all blocks file paths.
   const blocksFilePathsKeys = blocksFilePaths.keys();
@@ -40,7 +41,7 @@ export const registerBlocks = (blocksManifests, blocksFilePaths, blocksSettings)
     }
 
     // Pass data to registerBlock helper to get final output for registerBlockType.
-    const blockDetails = registerBlock(block, blocksSettings, editCallback);
+    const blockDetails = registerBlock(block, blocksSettings, editCallback, wrapperComponent);
 
     // Native WP method for block registration.
     registerBlockType(blockDetails.blockName, blockDetails.options);

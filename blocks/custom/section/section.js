@@ -1,4 +1,5 @@
-import { Wrapper } from '../../wrapper/wrapper';
+import { Fragment } from '@wordpress/element';
+
 import { SectionEditor } from './components/section-editor';
 
 export const Section = (props) => {
@@ -7,12 +8,10 @@ export const Section = (props) => {
   } = props;
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <SectionEditor
         attributes={attributes}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

@@ -1,9 +1,9 @@
+import { Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/editor';
 
 import { getActions } from 'EighshiftBlocksGetActions';
 import manifest from './manifest.json';
 
-import { Wrapper } from '../../wrapper/wrapper';
 import { LinkEditor } from '../../components/link/components/link-editor';
 import { LinkOptions } from '../../components/link/components/link-options';
 
@@ -20,9 +20,7 @@ export const Link = (props) => {
   const actions = getActions(props, manifest);
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <InspectorControls>
         <LinkOptions
           url={url}
@@ -37,6 +35,6 @@ export const Link = (props) => {
         onChangeTitle={actions.onChangeTitle}
         styleColor={styleColor}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

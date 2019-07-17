@@ -1,7 +1,8 @@
+import { Fragment } from '@wordpress/element';
+
 import { getActions } from 'EighshiftBlocksGetActions';
 import manifest from './manifest.json';
 
-import { Wrapper } from '../../wrapper/wrapper';
 import { ListsEditor } from '../../components/lists/components/lists-editor';
 
 export const Lists = (props) => {
@@ -16,9 +17,7 @@ export const Lists = (props) => {
   const actions = getActions(props, manifest);
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <ListsEditor
         blockClass={blockClass}
         content={content}
@@ -26,6 +25,6 @@ export const Lists = (props) => {
         ordered={ordered}
         onChangeOrdered={actions.onChangeOrdered}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

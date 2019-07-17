@@ -1,6 +1,6 @@
+import { Fragment } from '@wordpress/element';
 import { InspectorControls } from '@wordpress/editor';
 
-import { Wrapper } from '../../wrapper/wrapper';
 import { ImageEditor } from '../../components/image/components/image-editor';
 import { ImageOptions } from '../../components/image/components/image-options';
 
@@ -23,9 +23,7 @@ export const Image = (props) => {
   };
 
   return (
-    <Wrapper
-      props={props}
-    >
+    <Fragment>
       <InspectorControls>
         <ImageOptions
           onChangeMedia={actions.onChangeMedia}
@@ -35,6 +33,6 @@ export const Image = (props) => {
         blockClass={blockClass}
         url={mediaUrl}
       />
-    </Wrapper>
+    </Fragment>
   );
 };

@@ -1,9 +1,9 @@
 <?php
 /**
- * Template for the Heading Block view.
+ * Template for the Heading Component.
  *
  * @since 1.0.0
- * @package Eightshift_Boilerplate\Blockss.
+ * @package Eightshift_Boilerplate\Blocks.
  */
 
 namespace Eightshift_Boilerplate\Blocks;

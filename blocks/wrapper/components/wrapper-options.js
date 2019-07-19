@@ -62,7 +62,9 @@ export const WrapperOptions = (props) => {
   return (
     <PanelBody title={__('Utility', 'eightshift-boilerplate')}>
       <h3>{__('Colors', 'eightshift-boilerplate')}</h3>
-      <SelectControl
+
+      {styleBackgroundColor &&
+        <SelectControl
         label={__('Background Color', 'eightshift-boilerplate')}
         value={styleBackgroundColor}
         options={[
@@ -71,25 +73,34 @@ export const WrapperOptions = (props) => {
           { label: __('Black', 'eightshift-boilerplate'), value: 'black' },
         ]}
         onChange={onChangeStyleBackgroundColor}
-      />
-      <SelectControl
-        label={__('Text Color', 'eightshift-boilerplate')}
-        value={styleTextColor}
-        options={[
-          { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
-        ]}
-        onChange={onChangeStyleTextColor}
-      />
+        />
+      }
+
+      {styleTextColor &&
+        <SelectControl
+          label={__('Text Color', 'eightshift-boilerplate')}
+          value={styleTextColor}
+          options={[
+            { label: __('Default', 'eightshift-boilerplate'), value: 'default' },
+          ]}
+          onChange={onChangeStyleTextColor}
+        />
+      }
 
       <hr />
       <h3>{__('Content', 'eightshift-boilerplate')}</h3>
-      <SelectControl
+
+      {styleContentWidth &&
+        <SelectControl
         label={__('Content Width', 'eightshift-boilerplate')}
         value={styleContentWidth}
         options={colsOutput}
         onChange={onChangeStyleContentWidth}
-      />
-      <SelectControl
+        />
+      }
+
+      {styleContentOffset &&
+        <SelectControl
         label={__('Content Offset', 'eightshift-boilerplate')}
         value={styleContentOffset}
         options={[
@@ -97,11 +108,13 @@ export const WrapperOptions = (props) => {
           { label: __('Center', 'eightshift-boilerplate'), value: 'center' },
         ]}
         onChange={onChangeStyleContentOffset}
-      />
+        />
+      }
 
       <hr />
       <h3>{__('Container', 'eightshift-boilerplate')}</h3>
-      <SelectControl
+      {styleContainerWidth &&
+        <SelectControl
         label={__('Container Width', 'eightshift-boilerplate')}
         value={styleContainerWidth}
         options={[
@@ -110,8 +123,11 @@ export const WrapperOptions = (props) => {
           { label: __('No Width', 'eightshift-boilerplate'), value: 'no-width' },
         ]}
         onChange={onChangeStyleContainerWidth}
-      />
-      <SelectControl
+        />
+      }
+
+      {styleContainerSpacing &&
+        <SelectControl
         label={__('Container Spacing', 'eightshift-boilerplate')}
         value={styleContainerSpacing}
         options={[
@@ -119,53 +135,72 @@ export const WrapperOptions = (props) => {
           { label: __('No Spacing', 'eightshift-boilerplate'), value: 'no-spacing' },
         ]}
         onChange={onChangeStyleContainerSpacing}
-      />
+        />
+      }
 
       <hr />
       <h3>{__('Spacing TOP', 'eightshift-boilerplate')}</h3>
-      <SelectControl
+
+      {styleSpacingTop &&
+        <SelectControl
         label={__('Desktop', 'eightshift-boilerplate')}
         value={styleSpacingTop}
         options={spacingOptions}
         onChange={onChangeStyleSpacingTop}
-      />
-      <SelectControl
+        />
+      }
+
+      {styleSpacingTopTablet &&
+        <SelectControl
         label={__('Tablet', 'eightshift-boilerplate')}
         value={styleSpacingTopTablet}
         options={spacingOptions}
         onChange={onChangeStyleSpacingTopTablet}
-      />
-      <SelectControl
+        />
+      }
+
+      {styleSpacingTopMobile &&
+        <SelectControl
         label={__('Mobile', 'eightshift-boilerplate')}
         value={styleSpacingTopMobile}
         options={spacingOptions}
         onChange={onChangeStyleSpacingTopMobile}
-      />
+        />
+      }
 
       <hr />
       <h3>{__('Spacing BOTTOM', 'eightshift-boilerplate')}</h3>
-      <SelectControl
+      {styleSpacingBottom &&
+        <SelectControl
         label={__('Desktop', 'eightshift-boilerplate')}
         value={styleSpacingBottom}
         options={spacingOptions}
         onChange={onChangeStyleSpacingBottom}
-      />
-      <SelectControl
+        />
+      }
+
+      {styleSpacingBottomTablet &&
+        <SelectControl
         label={__('Tablet', 'eightshift-boilerplate')}
         value={styleSpacingBottomTablet}
         options={spacingOptions}
         onChange={onChangeStyleSpacingBottomTablet}
-      />
-      <SelectControl
+        />
+      }
+
+      {styleSpacingBottomMobile &&
+        <SelectControl
         label={__('Mobile', 'eightshift-boilerplate')}
         value={styleSpacingBottomMobile}
         options={spacingOptions}
         onChange={onChangeStyleSpacingBottomMobile}
-      />
+        />
+      }
 
       <hr />
       <h3>{__('Visibility', 'eightshift-boilerplate')}</h3>
-      <SelectControl
+      {styleShowOnlyMobile &&
+        <SelectControl
         label={__('Show Block Only On Mobile', 'eightshift-boilerplate')}
         value={styleShowOnlyMobile}
         options={[
@@ -173,15 +208,18 @@ export const WrapperOptions = (props) => {
           { label: __('True', 'eightshift-boilerplate'), value: 'true' },
         ]}
         onChange={onChangeStyleShowOnlyMobile}
-      />
+        />
+      }
       
       <hr />
       <h3>{__('General', 'eightshift-boilerplate')}</h3>
-      <TextControl
+      {id &&
+        <TextControl
         label={__('Section ID', 'eightshift-boilerplate')}
         value={id}
         onChange={onChangeId}
-      />
+        />
+      }
     </PanelBody>
   );
 };

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for the Lists Block view.
+ * Template for the Lists Component.
  *
  * @since 1.0.0
  * @package Eightshift_Boilerplate\Blocks.

@@ -12,6 +12,8 @@ $link: (
 );
 
 .link {
+  text-decoration: none;
+
   &__color {
     @include link-modifiers($link, colors);
   }

@@ -14,8 +14,6 @@ export const HeadingToolbar = (props) => {
     <Fragment>
       {level &&
         <HeadingLevel
-          minLevel={1}
-          maxLevel={6}
           selectedLevel={level}
           onChange={onChangeLevel}
         />

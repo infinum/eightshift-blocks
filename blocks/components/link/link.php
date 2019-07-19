@@ -22,6 +22,10 @@ $link_class = "
 ";
 ?>
 
-<a href="<?php echo esc_url( $url ); ?>" class="<?php echo esc_attr( $link_class ); ?>">
+<a
+  href="<?php echo esc_url( $url ); ?>"
+  class="<?php echo esc_attr( $link_class ); ?>"
+  title="<?php echo esc_attr( $title ); ?>"
+>
   <?php echo esc_html( $title ); ?>
 </a>

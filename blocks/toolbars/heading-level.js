@@ -16,8 +16,8 @@ const createLevelControl = (targetLevel, selectedLevel, onChange) => {
 
 export const HeadingLevel = (props) => {
   const {
-    minLevel,
-    maxLevel,
+    minLevel = 1,
+    maxLevel = 6,
     selectedLevel,
     onChange,
   } = props;

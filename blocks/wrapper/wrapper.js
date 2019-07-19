@@ -36,7 +36,9 @@ export const Wrapper = (props) => {
             attributes={attributes}
           />
         </Fragment> :
-        { children }
+        <Fragment>
+          {children}
+        </Fragment>
       }
     </Fragment>
   );

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for the Video.
+ * Template for the Video Component.
  *
  * @since 1.0.0
  * @package Eightshift_Boilerplate\Blocks.

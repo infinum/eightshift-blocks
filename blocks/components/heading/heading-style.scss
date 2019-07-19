@@ -30,6 +30,7 @@ $heading: (
 .heading {
   @extend %heading-reset;
   font-weight: bold;
+  color: inherit;
 
   &__color {
     @include modifiers(map-get-strict($heading, colors), color);

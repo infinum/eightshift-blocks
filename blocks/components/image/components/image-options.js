@@ -9,12 +9,17 @@ export const ImageOptions = (props) => {
 
   return (
     <PanelBody title={__('Image Settings', 'eightshift-boilerplate')}>
-      <MediaPlaceholder
-        icon="format-image"
-        onSelect={onChangeMedia}
-        accept={'image/*'}
-        allowedTypes={['image', 'application/json']}
-      />
+      {onChangeMedia &&
+        <div>
+          <label htmlFor="media">{__('Image', 'eightshift-boilerplate')}</label>
+          <MediaPlaceholder
+            icon="format-image"
+            onSelect={onChangeMedia}
+            accept={'image/*'}
+            allowedTypes={['image', 'application/json']}
+          />
+        </div>
+      }
     </PanelBody>
   );
 };

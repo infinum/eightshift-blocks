@@ -9,11 +9,16 @@ export const VideoOptions = (props) => {
 
   return (
     <PanelBody title={__('Video Settings', 'eightshift-boilerplate')}>
-      <MediaPlaceholder
-        onSelect={onChangeMedia}
-        accept={'video/*'}
-        allowedTypes={['video']}
-      />
+      {onChangeMedia &&
+        <div>
+          <label htmlFor="media">{__('Video', 'eightshift-boilerplate')}</label>
+          <MediaPlaceholder
+            onSelect={onChangeMedia}
+            accept={'video/*'}
+            allowedTypes={['video']}
+          />
+        </div>
+      }
     </PanelBody>
   );
 };

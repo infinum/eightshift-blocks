@@ -12,8 +12,8 @@ export const ButtonOptions = (props) => {
     onChangeStyleColor,
     styleSizeWidth,
     onChangeStyleSizeWidth,
-    btnId,
-    onChangeBtnId,
+    id,
+    onChangeId,
   } = props;
 
   return (
@@ -55,9 +55,9 @@ export const ButtonOptions = (props) => {
         />
       }
 
-      {url &&
+      {onChangeUrl &&
         <div>
-          <label htmlFor="URLInput">{__('Button Link', 'eightshift-boilerplate')}</label>
+          <label htmlFor="url">{__('Button Link', 'eightshift-boilerplate')}</label>
           <URLInput
             value={url}
             onChange={onChangeUrl}
@@ -66,12 +66,12 @@ export const ButtonOptions = (props) => {
         </div>
       }
 
-      {btnId &&
+      {onChangeId &&
         <div>
           <TextControl
             label={__('Button ID', 'eightshift-boilerplate')}
-            value={btnId}
-            onChange={onChangeBtnId}
+            value={id}
+            onChange={onChangeId}
           />
         </div>
       }

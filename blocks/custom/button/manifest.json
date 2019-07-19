@@ -22,7 +22,7 @@
     },
     "styleColor": {
       "type": "string",
-      "default": "cinnabar"
+      "default": "default"
     },
     "styleSizeWidth": {
       "type": "string",

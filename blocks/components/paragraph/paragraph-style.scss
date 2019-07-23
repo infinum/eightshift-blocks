@@ -9,7 +9,7 @@ $paragraph: (
   @extend %paragraph-reset;
 
   &__color {
-    @include modifiers(map-get-strict($paragraph, colors), color);
+    @include modifiers-deep($paragraph, colors, color);
   }
 
   &__align {

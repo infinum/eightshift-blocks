@@ -33,7 +33,7 @@ $heading: (
   color: inherit;
 
   &__color {
-    @include modifiers(map-get-strict($heading, colors), color);
+    @include modifiers-deep($heading, colors, color);
   }
 
   &__size {

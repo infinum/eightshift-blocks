@@ -1,11 +1,11 @@
 $wrapper: (
   background-colors: (
-    'default': $base-background-color,
-    'primary': $base-primary-color,
-    'black': $base-black-color,
+    default: $base-background-color,
+    primary: $base-primary-color,
+    black: $base-black-color,
   ),
   text-colors: (
-    'default': $base-text-color,
+    default: $base-text-color,
   ),
   spacings: (
     biggest:    100px,
@@ -42,43 +42,43 @@ $wrapper: (
   }
 
   &__spacing-top {
-    @include modifiers(map-get-strict($wrapper, spacings), padding-top);
+    @include modifiers-deep($wrapper, spacings, padding-top);
   }
 
   &__spacing-top-tablet {
     @include media(tablet) {
-      @include modifiers(map-get-strict($wrapper, spacings), padding-top);
+      @include modifiers-deep($wrapper, spacings, padding-top);
     }
   }
 
   &__spacing-top-mobile {
     @include media(mobile down) {
-      @include modifiers(map-get-strict($wrapper, spacings), padding-top);
+      @include modifiers-deep($wrapper, spacings, padding-top);
     }
   }
 
   &__spacing-bottom {
-    @include modifiers(map-get-strict($wrapper, spacings), padding-bottom);
+    @include modifiers-deep($wrapper, spacings, padding-bottom);
   }
 
   &__spacing-bottom-tablet {
     @include media(tablet) {
-      @include modifiers(map-get-strict($wrapper, spacings), padding-bottom);
+      @include modifiers-deep($wrapper, spacings, padding-bottom);
     }
   }
 
   &__spacing-bottom-mobile {
     @include media(mobile down) {
-      @include modifiers(map-get-strict($wrapper, spacings), padding-bottom);
+      @include modifiers-deep($wrapper, spacings, padding-bottom);
     }
   }
 
   &__bg-color {
-    @include modifiers(map-get-strict($wrapper, background-colors), background-color);
+    @include modifiers-deep($wrapper, background-colors, background-color);
   }
 
   &__text-color {
-    @include modifiers(map-get-strict($wrapper, text-colors), color);
+    @include modifiers-deep($wrapper, text-colors, color);
   }
 
   &__container {
@@ -88,12 +88,12 @@ $wrapper: (
   }
 
   &__container-spacing {
-    @include modifiers(map-get-strict($wrapper, container-spacings), padding-left);
-    @include modifiers(map-get-strict($wrapper, container-spacings), padding-right);
+    @include modifiers-deep($wrapper, container-spacings, padding-left);
+    @include modifiers-deep($wrapper, container-spacings, padding-right);
   }
 
   &__container-width {
-    @include modifiers(map-get-strict($wrapper, containers), max-width);
+    @include modifiers-deep($wrapper, containers, max-width);
   }
 
   &__inner {

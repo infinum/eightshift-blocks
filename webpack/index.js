@@ -46,10 +46,11 @@ module.exports = {
   externals,
   resolve: {
     alias: {
-      EighshiftBlocksDynamicImport: `${blocksHelpers}/dynamic-import`,
-      EighshiftBlocksRegisterBlocks: `${blocksHelpers}/register-blocks`,
-      EighshiftBlocksUcfirst: `${blocksHelpers}/ucfirst`,
-      EighshiftBlocksGetActions: `${blocksHelpers}/get-actions`,
+      EighshiftBlocksDynamicImport: `${blocksHelpers}/scripts/dynamic-import`,
+      EighshiftBlocksRegisterBlocks: `${blocksHelpers}/scripts/register-blocks`,
+      EighshiftBlocksUcfirst: `${blocksHelpers}/scripts/ucfirst`,
+      EighshiftBlocksGetActions: `${blocksHelpers}/scripts/get-actions`,
+      EighshiftEditorStyleOverride: `${blocksHelpers}/styles/override-editor.scss`,
     },
   },
 };

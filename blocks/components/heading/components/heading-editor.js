@@ -25,7 +25,6 @@ export const HeadingEditor = (props) => {
 
   return (
     <RichText
-      tagName={`h${level}`}
       className={headingClass}
       placeholder={__('Add your heading', 'eightshift-block')}
       onChange={onChangeContent}

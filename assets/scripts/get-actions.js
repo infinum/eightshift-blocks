@@ -1,4 +1,4 @@
-import { ucfirst } from './ucfirst';
+import { ucfirst } from 'ucfirst';
 
 /**
  * Crate attributes actions from blocks manifest.json.

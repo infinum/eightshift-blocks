@@ -13,7 +13,7 @@
 @import './../../../../skin/assets/styles/shared';
 
 // Ovveride default editor styles.
-@import './editor-default/override-editor';
+@import 'EighshiftBlocksGetActions';
 
 // Register Wrapper block styles.
 @import './../../wrapper/wrapper-editor.scss';

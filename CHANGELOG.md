@@ -7,6 +7,11 @@ This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a 
 
 _No documentation available about unreleased changes as of yet._
 
+## [1.0.6] - 25.07.2019
+
+### Changed
+- Wrapper mixin from grid-width-modifiers to flex-grid-width-modifiers.
+
 ## [1.0.5] - 25.07.2019
 
 ### Changed

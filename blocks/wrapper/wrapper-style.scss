@@ -102,7 +102,7 @@ $wrapper: (
 
   &__width {
     @include media(desktop up) {
-      @include grid-width-modifiers($wrapper: #{$this}__inner);
+      @include flex-grid-width-modifiers($wrapper: #{$this}__inner);
     }
   }
 

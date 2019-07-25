@@ -1,4 +1,4 @@
-import { ucfirst } from 'ucfirst';
+import { ucfirst } from './ucfirst';
 
 /**
  * Crate attributes actions from blocks manifest.json.
@@ -9,6 +9,7 @@ import { ucfirst } from 'ucfirst';
  * @param {object} props Block props so we can get `setAttributes` method.
  * @param {object} manifest Block manifest.json so we can get all attributes.
  *
+ * @since 1.0.5 Ucfirst path hotfix.
  * @since 1.0.4 Moving to scripts folder.
  * @since 1.0.0
  */

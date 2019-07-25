@@ -9,6 +9,7 @@ import { ucfirst } from 'ucfirst';
  * @param {object} props Block props so we can get `setAttributes` method.
  * @param {object} manifest Block manifest.json so we can get all attributes.
  *
+ * @since 1.0.4 Moving to scripts folder.
  * @since 1.0.0
  */
 export const getActions = (props, manifest) => {

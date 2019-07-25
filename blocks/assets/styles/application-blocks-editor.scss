@@ -6,6 +6,7 @@
  *
  * Usage: `editor`.
  *
+ * @since 1.0.4 Updating path for editor style overrides.
  * @since 1.0.0
  */
 
@@ -13,7 +14,7 @@
 @import './../../../../skin/assets/styles/shared';
 
 // Ovveride default editor styles.
-@import 'EighshiftBlocksGetActions';
+@import 'EighshiftEditorStyleOverride';
 
 // Register Wrapper block styles.
 @import './../../wrapper/wrapper-editor.scss';

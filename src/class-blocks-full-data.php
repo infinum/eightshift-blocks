@@ -70,9 +70,10 @@ abstract class Blocks_Full_Data implements Service {
    *
    * @return string
    *
+   * @since 1.0.7 Removing static method.
    * @since 1.0.0
    */
-  public static function get_blocks_path() : string {
+  public function get_blocks_path() : string {
     return get_template_directory() . '/src/blocks';
   }
 

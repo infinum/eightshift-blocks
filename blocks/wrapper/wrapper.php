@@ -8,8 +8,6 @@
 
 namespace Eightshift_Boilerplate\Blocks;
 
-use Eightshift_Blocks\Helpers\Block_View_Helper;
-
 // Used to add or remove wrapper.
 $has_wrapper = $attributes['hasWrapper'] ?? true;
 
@@ -65,7 +63,7 @@ if ( $has_wrapper ) {
     <div class="<?php echo esc_attr( $wrapper_container_class ); ?>">
       <div class="<?php echo esc_attr( $wrapper_inner_class ); ?>">
         <?php
-          Block_View_Helper::render_wrapper_view(
+          $this->render_wrapper_view(
             $template_path,
             $attributes,
             $inner_block_content
@@ -76,7 +74,7 @@ if ( $has_wrapper ) {
   </div>
   <?php
 } else {
-  Block_View_Helper::render_wrapper_view(
+  $this->render_wrapper_view(
     $template_path,
     $attributes,
     $inner_block_content

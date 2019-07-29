@@ -3,6 +3,7 @@
  * Class Blocks holds base abstract class for Gutenberg blocks registration.
  * It provides ability to register custom blocks using manifest.json setup.
  *
+ * @since   1.0.7 Transfering helper render methods
  * @since   1.0.0
  * @package Eightshift_Blocks
  */
@@ -154,5 +155,49 @@ abstract class Blocks extends Attributes implements Renderable_Block {
     $output = ob_get_clean();
     unset( $block_name, $template_path, $attributes, $inner_block_content );
     return $output;
+  }
+
+  /**
+   * Locate and return template part with passed attributes for wrapper.
+   *
+   * @param string $src                  String with URL path to template.
+   * @param array  $attributes           Attributes array to pass in template.
+   * @param string $inner_block_content If using inner blocks content pass the data.
+   *
+   * @throws Exception\Missing_Wrapper_View_Helper Throws error if wrapper view template is missing.
+   *
+   * @since 1.0.7 Transfering helper render methods to this class
+   * @since 1.0.0
+   */
+  public function render_wrapper_view( string $src, array $attributes, $inner_block_content = null ) {
+    if ( ! file_exists( $src ) ) {
+      throw Missing_Wrapper_View_Helper::view_exception( $src );
+    }
+
+    include $src;
+    unset( $src, $attributes, $inner_block_content );
+  }
+
+  /**
+   * Locate and return template part with passed attributes for block.
+   *
+   * @param string $src                  String with URL path to template.
+   * @param array  $attributes           Attributes array to pass in template.
+   * @param string $inner_block_content If using inner blocks content pass the data.
+   *
+   * @throws Exception\Missing_Wrapper_View_Helper Throws error if wrapper view template is missing.
+   *
+   * @since 1.0.7 Transfering helper render methods to this class
+   * @since 1.0.0
+   */
+  public function render_block_view( string $src, array $attributes, $inner_block_content = null ) {
+    $path = $this->get_blocks_path() . $src;
+
+    if ( ! file_exists( $path ) ) {
+      throw Missing_Block_View_Helper::view_exception( $path );
+    }
+
+    include $path;
+    unset( $src, $attributes, $inner_block_content, $path );
   }
 }

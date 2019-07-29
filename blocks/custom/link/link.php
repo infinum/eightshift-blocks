@@ -8,9 +8,7 @@
 
 namespace Eightshift_Boilerplate\Blocks;
 
-use Eightshift_Blocks\Helpers\Block_View_Helper;
-
-Block_View_Helper::render_block_view(
+$this->render_block_view(
   '/components/link/link.php',
   [
     'blockClass' => $attributes['blockClass'] ?? '',

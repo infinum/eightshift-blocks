@@ -7,6 +7,17 @@ This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a 
 
 _No documentation available about unreleased changes as of yet._
 
+## [1.0.8] - 12.08.2019
+
+### Changed
+- Fixing wrong mixing name in wrapper-style.
+- Added all assets to the blocks.
+- Adding priority to allowed_block_types hook.
+- Changing Eightshift Libs Manifest namespace.
+- Adding Layout folder for general layout components.
+- Updating Eigthishift version.
+- etc.
+
 ## [1.0.7] - 29.07.2019
 
 ### Changed

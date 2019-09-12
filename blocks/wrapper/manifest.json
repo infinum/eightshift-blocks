@@ -48,8 +48,8 @@
       "type": "string"
     },
     "styleShowOnlyMobile": {
-      "type": "string",
-      "default": "false"
+      "type": "bool",
+      "default": false
     },
     "hasWrapper": {
       "type": "bool",

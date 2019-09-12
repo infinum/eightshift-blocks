@@ -25,7 +25,7 @@ $wrapper: (
     no-spacing: 0,
   ),
   containers: (
-    default: 1330px,
+    default: $base-container-size,
     medium: 1110px,
     no-width: auto,
   ),
@@ -35,7 +35,7 @@ $wrapper: (
   $this: &;
   position: relative;
 
-  &__show-only-mobile--true {
+  &__show-only-mobile--1 {
     @include media(tablet up) {
       display: none;
     }

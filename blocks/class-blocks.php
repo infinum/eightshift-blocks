@@ -25,6 +25,6 @@ class Blocks extends Lib_Blocks {
   public function register() {
     parent::register();
 
-    add_filter( 'allowed_block_types', [ $this, 'get_all_blocks_list' ], 9999 );
+    add_filter( 'allowed_block_types', [ $this, 'get_all_blocks_list' ], 11, 2 );
   }
 }

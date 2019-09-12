@@ -25,7 +25,7 @@
   },
   "require": {
     "php": ">=7.0",
-    "infinum/eightshift-libs": "^0.8.0"
+    "infinum/eightshift-libs": "^0.9.0"
   },
   "require-dev": {
     "infinum/coding-standards-wp": "^0.4.1",

@@ -7,6 +7,12 @@ This projects adheres to [Semantic Versioning](https://semver.org/) and [Keep a 
 
 _No documentation available about unreleased changes as of yet._
 
+## [1.0.9] - 12.08.2019
+
+### Changed
+- Changing dynamicImport helper to function.
+- 
+
 ## [1.0.8] - 12.08.2019
 
 ### Changed

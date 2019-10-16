@@ -20,13 +20,13 @@ interface Renderable_Block {
   /**
    * Provides block registration render callback method.
    *
-   * @param array  $attributes Array of attributes as defined in block's manifest.json.
-   * @param string $content    Block's content.
+   * @param array  $attributes          Array of attributes as defined in block's manifest.json.
+   * @param string $inner_block_content Block's content.
    *
    * @throws \Exception On missing attributes OR missing template.
    * @return string
    *
    * @since 1.0.0
    */
-  public function render( array $attributes, string $content ) : string;
+  public function render( array $attributes, $inner_block_content ) : string;
 }

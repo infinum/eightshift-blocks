@@ -76,7 +76,7 @@ const siglePropsAction = (setAttributes, key) => {
   const output = {};
 
   // Set output as a object key with anonimus function callback.
-  // Keys first name must be uppercased.
+  // Keys name must be written in uppercase.
   output[`onChange${ucfirst(key)}`] = function(value) {
     setAttributes({
       [key]: value,
